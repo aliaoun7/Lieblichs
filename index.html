@@ -1,124 +1,937 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lieblich's Garage | Home</title>
-  <meta name="description" content="Lieblich's Garage offers trusted auto repair and maintenance services in Farmington Hills, MI. Serving our community for over 50 years with honesty and expertise.">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" referrerpolicy="no-referrer">
-  <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lieblich's Garage | Farmington Hills Auto Repair</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'garage-red': '#D92323',
+                        'garage-black': '#0a0a0a',
+                        'garage-dark': '#121212',
+                        'garage-gray': '#1f1f1f',
+                        'carfax-blue': '#0072CE',
+                        'carfax-yellow': '#F2A900',
+                    },
+                    fontFamily: {
+                        'heading': ['Oswald', 'sans-serif'],
+                        'body': ['Roboto Condensed', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Roboto Condensed', sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, .font-heading {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+            color: transparent;
+        }
+
+        .clip-diagonal {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        .clip-diagonal-reverse {
+            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+            color: #D92323;
+        }
+
+        .service-icon {
+            transition: all 0.3s ease;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D92323;
+            border-radius: 5px;
+        }
+
+        .bg-pattern {
+            background-image: radial-gradient(#D92323 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.1;
+        }
+
+        .nav-scrolled {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid #D92323;
+        }
+        
+        .loader {
+            border-top-color: #D92323;
+            -webkit-animation: spinner 1.5s linear infinite;
+            animation: spinner 1.5s linear infinite;
+        }
+        
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .badge-glow {
+            box-shadow: 0 0 30px rgba(0, 114, 206, 0.3), 0 0 60px rgba(242, 169, 0, 0.2);
+        }
+
+        .award-badge {
+            transition: all 0.3s ease;
+        }
+        .award-badge:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 114, 206, 0.4);
+        }
+
+        .form-input {
+            background-color: #1f1f1f;
+            border: 1px solid #333;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: #D92323;
+            box-shadow: 0 0 0 3px rgba(217, 35, 35, 0.1);
+        }
+        
+        .form-input::placeholder {
+            color: #666;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #ccc;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .booking-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 100;
+            overflow-y: auto;
+        }
+
+        .booking-modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .time-slot {
+            padding: 0.5rem 1rem;
+            border: 1px solid #333;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        .time-slot:hover {
+            border-color: #D92323;
+            background-color: rgba(217, 35, 35, 0.1);
+        }
+
+        .time-slot.selected {
+            background-color: #D92323;
+            border-color: #D92323;
+            color: white;
+        }
+
+        .time-slot.unavailable {
+            opacity: 0.3;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="booking-modal">
+        <div class="bg-garage-gray w-full max-w-2xl rounded-xl border border-gray-700 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl z-10">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="p-8">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-garage-red rounded-full mb-4">
+                        <i class="fas fa-calendar-check text-2xl text-white"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold mb-2">BOOK APPOINTMENT</h2>
+                    <p class="text-gray-400">Schedule your service at Lieblich's Garage</p>
+                </div>
+
+                <form id="bookingForm" onsubmit="handleBooking(event)">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="form-label">First Name *</label>
+                            <input type="text" name="firstName" required class="form-input" placeholder="John">
+                        </div>
+                        <div>
+                            <label class="form-label">Last Name *</label>
+                            <input type="text" name="lastName" required class="form-input" placeholder="Doe">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="form-label">Phone Number *</label>
+                            <input type="tel" name="phone" required class="form-input" placeholder="(248) 555-0123">
+                        </div>
+                        <div>
+                            <label class="form-label">Email Address</label>
+                            <input type="email" name="email" class="form-input" placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="form-label">Vehicle Year *</label>
+                            <input type="number" name="vehicleYear" required class="form-input" placeholder="2019" min="1900" max="2030">
+                        </div>
+                        <div>
+                            <label class="form-label">Vehicle Make & Model *</label>
+                            <input type="text" name="vehicleModel" required class="form-input" placeholder="Toyota Camry">
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="form-label">Service Needed *</label>
+                        <select name="serviceType" required class="form-input">
+                            <option value="">Select a service...</option>
+                            <option value="oil-change">Oil Change</option>
+                            <option value="brake-service">Brake Service</option>
+                            <option value="tune-up">Tune Up</option>
+                            <option value="diagnostics">Check Engine Light / Diagnostics</option>
+                            <option value="tires">Tire Rotation / Alignment</option>
+                            <option value="battery">Battery / Electrical</option>
+                            <option value="other">Other / Not Sure</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="form-label">Preferred Date *</label>
+                        <input type="date" name="preferredDate" required class="form-input" id="datePicker">
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="form-label">Preferred Time *</label>
+                        <div class="grid grid-cols-3 md:grid-cols-4 gap-3" id="timeSlots">
+                            <div class="time-slot" onclick="selectTime(this, '8:00 AM')">8:00 AM</div>
+                            <div class="time-slot" onclick="selectTime(this, '9:00 AM')">9:00 AM</div>
+                            <div class="time-slot" onclick="selectTime(this, '10:00 AM')">10:00 AM</div>
+                            <div class="time-slot" onclick="selectTime(this, '11:00 AM')">11:00 AM</div>
+                            <div class="time-slot" onclick="selectTime(this, '12:00 PM')">12:00 PM</div>
+                            <div class="time-slot" onclick="selectTime(this, '1:00 PM')">1:00 PM</div>
+                            <div class="time-slot" onclick="selectTime(this, '2:00 PM')">2:00 PM</div>
+                            <div class="time-slot" onclick="selectTime(this, '3:00 PM')">3:00 PM</div>
+                            <div class="time-slot" onclick="selectTime(this, '4:00 PM')">4:00 PM</div>
+                            <div class="time-slot unavailable">5:00 PM</div>
+                        </div>
+                        <input type="hidden" name="preferredTime" id="selectedTime" required>
+                    </div>
+
+                    <div class="mb-6">
+                        <label class="form-label">Additional Notes</label>
+                        <textarea name="notes" rows="3" class="form-input" placeholder="Describe any specific issues or concerns..."></textarea>
+                    </div>
+
+                    <div class="bg-garage-black/50 p-4 rounded-lg mb-6 border border-gray-700">
+                        <div class="flex items-start gap-3">
+                            <i class="fas fa-info-circle text-garage-red mt-1"></i>
+                            <div class="text-sm text-gray-400">
+                                <p class="text-white font-bold mb-1">Business Hours</p>
+                                <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
+                                <p>Saturday - Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full py-4 bg-garage-red text-white font-bold text-lg rounded-lg hover:bg-red-700 transition-all transform hover:scale-[1.02] shadow-[0_0_20px_rgba(217,35,35,0.4)]">
+                        CONFIRM BOOKING
+                    </button>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="bookingSuccess" class="hidden text-center py-12">
+                    <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-check text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">BOOKING REQUEST RECEIVED!</h3>
+                    <p class="text-gray-400 mb-6">Thank you for choosing Lieblich's Garage. We'll call you at the number provided to confirm your appointment within 24 hours.</p>
+                    <button onclick="closeBookingModal()" class="px-8 py-3 bg-garage-gray text-white font-bold rounded hover:bg-gray-700 transition-colors">
+                        CLOSE
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-garage-red rounded flex items-center justify-center transform group-hover:rotate-12 transition-transform">
+                    <i class="fas fa-wrench text-white text-xl"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-heading text-2xl font-bold tracking-wider text-white leading-none">LIEBLICH'S</span>
+                    <span class="text-garage-red text-xs tracking-[0.3em] font-bold">GARAGE</span>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8">
+                <a href="#services" class="text-gray-300 hover:text-garage-red font-bold tracking-wide transition-colors">SERVICES</a>
+                <a href="#about" class="text-gray-300 hover:text-garage-red font-bold tracking-wide transition-colors">ABOUT</a>
+                <a href="#awards" class="text-carfax-yellow hover:text-carfax-blue font-bold tracking-wide transition-colors flex items-center gap-2">
+                    <i class="fas fa-award"></i> AWARDS
+                </a>
+                <a href="#estimator" class="text-gray-300 hover:text-garage-red font-bold tracking-wide transition-colors">ESTIMATE</a>
+                <button onclick="openBookingModal()" class="px-6 py-2 bg-garage-red text-white font-bold rounded hover:bg-red-700 transition-colors shadow-[0_0_15px_rgba(217,35,35,0.5)]">
+                    BOOK NOW
+                </button>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-garage-dark border-t border-garage-red md:hidden">
+            <div class="flex flex-col p-6 gap-4">
+                <a href="#services" class="text-white hover:text-garage-red font-bold">SERVICES</a>
+                <a href="#about" class="text-white hover:text-garage-red font-bold">ABOUT</a>
+                <a href="#awards" class="text-carfax-yellow font-bold flex items-center gap-2"><i class="fas fa-award"></i> AWARDS</a>
+                <a href="#estimator" class="text-white hover:text-garage-red font-bold">ESTIMATE</a>
+                <button onclick="openBookingModal()" class="text-garage-red font-bold text-left">BOOK NOW</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center overflow-hidden clip-diagonal">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2832&auto=format&fit=crop" 
+                 alt="Mechanic working" 
+                 class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-garage-black/80 via-garage-black/50 to-garage-black"></div>
+            <div class="absolute inset-0 bg-pattern"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 pt-20">
+            <div class="max-w-4xl">
+                <!-- Carfax Award Banner -->
+                <div class="inline-flex items-center gap-3 px-4 py-2 bg-carfax-blue/20 border border-carfax-blue/50 rounded-full mb-6 backdrop-blur-sm animate-float cursor-pointer hover:bg-carfax-blue/30 transition-all" onclick="document.getElementById('awards').scrollIntoView({behavior: 'smooth'})">
+                    <i class="fas fa-star text-carfax-yellow"></i>
+                    <span class="text-white font-bold tracking-wider text-sm">2025 CARFAX TOP-RATED SERVICE CENTER</span>
+                    <i class="fas fa-certificate text-carfax-yellow"></i>
+                </div>
+
+                <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-tight">
+                    LIEBLICH'S <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-garage-red to-red-600">GARAGE</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl font-light border-l-4 border-garage-red pl-6">
+                    Family-owned auto repair serving Farmington Hills with integrity. 
+                    From routine maintenance to complex engine rebuilds.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button onclick="openBookingModal()" class="px-8 py-4 bg-garage-red text-white font-bold text-lg rounded hover:bg-red-700 transition-all transform hover:scale-105 flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(217,35,35,0.4)]">
+                        <i class="fas fa-calendar-check"></i>
+                        BOOK APPOINTMENT
+                    </button>
+                    <a href="tel:248-477-5513" class="px-8 py-4 border-2 border-white text-white font-bold text-lg rounded hover:bg-white hover:text-black transition-all flex items-center justify-center gap-3">
+                        <i class="fas fa-phone-alt"></i>
+                        CALL (248) 477-5513
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-garage-red text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- Info Bar -->
+    <div class="bg-garage-red py-4 relative z-20 -mt-20 mx-4 md:mx-20 rounded-lg shadow-2xl flex flex-wrap justify-center items-center gap-8 md:gap-16 text-center">
+        <div class="flex items-center gap-3">
+            <i class="fas fa-map-marker-alt text-2xl text-white"></i>
+            <div class="text-left">
+                <p class="text-xs text-red-200 font-bold uppercase">Location</p>
+                <p class="font-bold text-white">29500 W. 9 Mile Rd</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <i class="fas fa-clock text-2xl text-white"></i>
+            <div class="text-left">
+                <p class="text-xs text-red-200 font-bold uppercase">Hours</p>
+                <p class="font-bold text-white">Mon-Fri: 8AM - 6PM</p>
+            </div>
+        </div>
+        <div class="flex items-center gap-3">
+            <i class="fas fa-tools text-2xl text-white"></i>
+            <div class="text-left">
+                <p class="text-xs text-red-200 font-bold uppercase">Service</p>
+                <p class="font-bold text-white">All Makes & Models</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Awards & Recognition Section -->
+    <section id="awards" class="py-24 bg-gradient-to-b from-garage-dark to-garage-black relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
+            <div class="absolute top-10 left-10 text-9xl text-carfax-blue font-bold rotate-12">CARFAX</div>
+            <div class="absolute bottom-10 right-10 text-9xl text-carfax-yellow font-bold -rotate-12">2025</div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <div class="inline-block px-4 py-1 bg-carfax-blue/20 border border-carfax-blue rounded-full mb-4">
+                    <span class="text-carfax-yellow font-bold tracking-widest text-sm">RECOGNIZED EXCELLENCE</span>
+                </div>
+                <h2 class="text-5xl font-bold mb-4">AWARD WINNING <span class="text-carfax-blue">SERVICE</span></h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-carfax-blue to-carfax-yellow mx-auto"></div>
+                <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
+                    Our commitment to quality and customer satisfaction has been recognized by industry leaders.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="award-badge bg-gradient-to-br from-carfax-blue to-blue-800 rounded-2xl p-8 md:p-12 border-4 border-carfax-yellow relative overflow-hidden badge-glow">
+                    <!-- Decorative Stars -->
+                    <div class="absolute top-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                        <i class="fas fa-star text-carfax-yellow text-2xl animate-pulse"></i>
+                        <i class="fas fa-star text-carfax-yellow text-2xl animate-pulse" style="animation-delay: 0.1s"></i>
+                        <i class="fas fa-star text-carfax-yellow text-2xl animate-pulse" style="animation-delay: 0.2s"></i>
+                        <i class="fas fa-star text-carfax-yellow text-2xl animate-pulse" style="animation-delay: 0.3s"></i>
+                        <i class="fas fa-star text-carfax-yellow text-2xl animate-pulse" style="animation-delay: 0.4s"></i>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-center gap-8 mt-8">
+                        <div class="w-48 h-48 flex-shrink-0 bg-white rounded-full flex items-center justify-center border-4 border-carfax-yellow shadow-2xl relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-carfax-blue/20 to-transparent rounded-full"></div>
+                            <i class="fas fa-car text-6xl text-carfax-blue relative z-10"></i>
+                            <div class="absolute -bottom-2 bg-carfax-yellow text-carfax-blue font-bold px-4 py-1 rounded-full text-sm shadow-lg">
+                                CARFAX
+                            </div>
+                        </div>
+                        
+                        <div class="text-center md:text-left flex-1">
+                            <div class="text-carfax-yellow font-bold text-xl mb-2 tracking-wider">PROUD RECIPIENT</div>
+                            <h3 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                                2025 TOP-RATED<br>SERVICE CENTER
+                            </h3>
+                            <p class="text-blue-100 text-lg mb-6">
+                                Lieblich's Marathon has been recognized by Carfax for outstanding service excellence and customer satisfaction. This prestigious award is given to service centers that consistently deliver superior automotive care.
+                            </p>
+                            <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                                <div class="flex items-center gap-2 text-white bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
+                                    <i class="fas fa-check-circle text-carfax-yellow"></i>
+                                    <span class="font-bold">Verified Reviews</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-white bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
+                                    <i class="fas fa-check-circle text-carfax-yellow"></i>
+                                    <span class="font-bold">Quality Service</span>
+                                </div>
+                                <div class="flex items-center gap-2 text-white bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
+                                    <i class="fas fa-check-circle text-carfax-yellow"></i>
+                                    <span class="font-bold">Trusted Care</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ribbon -->
+                    <div class="absolute -right-12 top-8 bg-carfax-yellow text-carfax-blue font-bold py-2 px-12 transform rotate-45 shadow-lg text-sm tracking-wider">
+                        2025 WINNER
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div class="p-6 bg-garage-gray rounded-lg border border-gray-800 hover:border-carfax-blue transition-colors">
+                    <i class="fas fa-award text-4xl text-carfax-blue mb-4"></i>
+                    <h4 class="font-bold text-xl mb-2">Industry Recognized</h4>
+                    <p class="text-gray-400">Carfax Top-Rated Service Center 2025</p>
+                </div>
+                <div class="p-6 bg-garage-gray rounded-lg border border-gray-800 hover:border-carfax-blue transition-colors">
+                    <i class="fas fa-users text-4xl text-carfax-blue mb-4"></i>
+                    <h4 class="font-bold text-xl mb-2">Customer Approved</h4>
+                    <p class="text-gray-400">Based on verified customer reviews</p>
+                </div>
+                <div class="p-6 bg-garage-gray rounded-lg border border-gray-800 hover:border-carfax-blue transition-colors">
+                    <i class="fas fa-shield-alt text-4xl text-carfax-blue mb-4"></i>
+                    <h4 class="font-bold text-xl mb-2">Service Guaranteed</h4>
+                    <p class="text-gray-400">Quality workmanship on every repair</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-garage-dark relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">WHAT WE <span class="text-garage-red">FIX</span></h2>
+                <div class="w-24 h-1 bg-garage-red mx-auto"></div>
+                <p class="mt-4 text-gray-400">Comprehensive automotive care for your daily driver or classic ride.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-garage-gray p-8 rounded-lg border border-gray-800 hover:border-garage-red transition-all group cursor-pointer">
+                    <div class="service-icon text-5xl text-gray-500 mb-6">
+                        <i class="fas fa-car-crash"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-garage-red transition-colors">Diagnostics</h3>
+                    <p class="text-gray-400">Advanced computer scanning and electrical system diagnostics to find the root cause.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-garage-gray p-8 rounded-lg border border-gray-800 hover:border-garage-red transition-all group cursor-pointer">
+                    <div class="service-icon text-5xl text-gray-500 mb-6">
+                        <i class="fas fa-oil-can"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-garage-red transition-colors">Maintenance</h3>
+                    <p class="text-gray-400">Oil changes, fluid flushes, filter replacements, and scheduled factory maintenance.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-garage-gray p-8 rounded-lg border border-gray-800 hover:border-garage-red transition-all group cursor-pointer">
+                    <div class="service-icon text-5xl text-gray-500 mb-6">
+                        <i class="fas fa-car-battery"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-garage-red transition-colors">Electrical</h3>
+                    <p class="text-gray-400">Battery testing, alternator repair, starter replacement, and wiring issues.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-garage-gray p-8 rounded-lg border border-gray-800 hover:border-garage-red transition-all group cursor-pointer">
+                    <div class="service-icon text-5xl text-gray-500 mb-6">
+                        <i class="fas fa-tire"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 group-hover:text-garage-red transition-colors">Brakes & Tires</h3>
+                    <p class="text-gray-400">Brake pad replacement, rotor resurfacing, tire rotation, and alignment services.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Why Choose Us -->
+    <section id="about" class="py-24 bg-garage-black relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-garage-red/5 clip-diagonal-reverse hidden lg:block"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <div class="absolute -top-4 -left-4 w-full h-full border-2 border-garage-red rounded-lg"></div>
+                        <img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=2000&auto=format&fit=crop" 
+                             alt="Mechanic working on engine" 
+                             class="rounded-lg shadow-2xl relative z-10 grayscale hover:grayscale-0 transition-all duration-500">
+                        <div class="absolute -bottom-6 -right-6 bg-garage-red p-6 rounded-lg shadow-xl z-20 hidden md:block">
+                            <p class="text-4xl font-bold">25+</p>
+                            <p class="text-sm uppercase tracking-widest">Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 bg-carfax-blue/20 border border-carfax-blue rounded-full mb-4">
+                        <i class="fas fa-award text-carfax-yellow text-sm"></i>
+                        <span class="text-carfax-yellow text-xs font-bold tracking-wider">CARFAX TOP-RATED 2025</span>
+                    </div>
+                    <h2 class="text-5xl font-bold mb-6">BUILT ON <span class="text-garage-red">TRUST</span></h2>
+                    <p class="text-gray-300 text-lg mb-6 leading-relaxed">
+                        At Lieblich's Garage, we treat your car like it's our own. Located in the heart of Farmington Hills, 
+                        we've built our reputation on honest diagnostics, fair pricing, and quality workmanship.
+                    </p>
+                    <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                        We know being without your car is inconvenient. That's why we focus on efficient service without 
+                        cutting corners. From domestic trucks to imported sedans, our ASE-certified technicians have the 
+                        expertise to get you back on the road safely.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-garage-red text-xl"></i>
+                            <span class="font-bold">ASE Certified Techs</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-garage-red text-xl"></i>
+                            <span class="font-bold">Fair Pricing</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-garage-red text-xl"></i>
+                            <span class="font-bold">Local Family Owned</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-garage-red text-xl"></i>
+                            <span class="font-bold">Carfax Top-Rated</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Estimator -->
+    <section id="estimator" class="py-24 bg-garage-gray relative">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold mb-4">SERVICE <span class="text-garage-red">ESTIMATOR</span></h2>
+                <p class="text-gray-400">Select your issue below to get a rough estimate. Final price depends on vehicle make/model.</p>
+            </div>
+
+            <div class="bg-garage-black p-8 rounded-xl border border-gray-800 shadow-2xl">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <button onclick="showEstimate('brakes')" class="estimate-btn p-4 bg-garage-gray hover:bg-garage-red rounded-lg transition-all text-center group border border-gray-700 hover:border-garage-red">
+                        <i class="fas fa-compact-disc text-3xl mb-2 text-gray-400 group-hover:text-white"></i>
+                        <div class="font-bold">Brake Job</div>
+                    </button>
+                    <button onclick="showEstimate('oil')" class="estimate-btn p-4 bg-garage-gray hover:bg-garage-red rounded-lg transition-all text-center group border border-gray-700 hover:border-garage-red">
+                        <i class="fas fa-oil-can text-3xl mb-2 text-gray-400 group-hover:text-white"></i>
+                        <div class="font-bold">Oil Change</div>
+                    </button>
+                    <button onclick="showEstimate('tuneup')" class="estimate-btn p-4 bg-garage-gray hover:bg-garage-red rounded-lg transition-all text-center group border border-gray-700 hover:border-garage-red">
+                        <i class="fas fa-bolt text-3xl mb-2 text-gray-400 group-hover:text-white"></i>
+                        <div class="font-bold">Tune Up</div>
+                    </button>
+                </div>
+
+                <div id="estimate-display" class="hidden bg-garage-dark p-6 rounded-lg border-l-4 border-garage-red animate-fade-in">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 id="est-title" class="text-2xl font-bold text-white mb-2">Service Name</h3>
+                            <p id="est-desc" class="text-gray-400 mb-4">Description goes here.</p>
+                            <ul id="est-includes" class="text-sm text-gray-300 space-y-1 mb-4">
+                                <!-- List items -->
+                            </ul>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-sm text-gray-400 uppercase tracking-widest">Est. Starting At</div>
+                            <div id="est-price" class="text-4xl font-bold text-garage-red">$0</div>
+                        </div>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-gray-500">
+                        * Prices are estimates only. Contact us for a firm quote based on your specific vehicle.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-garage-black relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-12">
+                <!-- Contact Info -->
+                <div class="lg:w-1/3">
+                    <h2 class="text-4xl font-bold mb-6">GET IN <span class="text-garage-red">TOUCH</span></h2>
+                    <p class="text-gray-400 mb-8">Ready to schedule an appointment? Call us directly or stop by the shop.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-garage-gray rounded-full flex items-center justify-center flex-shrink-0 text-garage-red">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Address</h4>
+                                <p class="text-gray-400">29500 W. 9 Mile Rd<br>Farmington Hills, MI</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-garage-gray rounded-full flex items-center justify-center flex-shrink-0 text-garage-red">
+                                <i class="fas fa-phone-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Phone</h4>
+                                <a href="tel:248-477-5513" class="text-gray-400 hover:text-garage-red transition-colors">(248) 477-5513</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-garage-gray rounded-full flex items-center justify-center flex-shrink-0 text-garage-red">
+                                <i class="fas fa-clock text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">Business Hours</h4>
+                                <ul class="text-gray-400">
+                                    <li class="flex justify-between gap-8"><span>Mon - Fri:</span> <span class="text-white">8:00 AM - 6:00 PM</span></li>
+                                    <li class="flex justify-between gap-8"><span>Saturday:</span> <span class="text-red-400">Closed</span></li>
+                                    <li class="flex justify-between gap-8"><span>Sunday:</span> <span class="text-red-400">Closed</span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Mini Award Badge -->
+                        <div class="mt-8 p-4 bg-gradient-to-r from-carfax-blue/20 to-transparent border-l-4 border-carfax-yellow rounded-r-lg">
+                            <div class="flex items-center gap-3">
+                                <i class="fas fa-trophy text-carfax-yellow text-2xl"></i>
+                                <div>
+                                    <p class="text-carfax-yellow font-bold text-sm">2025 CARFAX</p>
+                                    <p class="text-white font-bold">Top-Rated Service</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="lg:w-2/3 h-96 lg:h-auto bg-garage-gray rounded-xl overflow-hidden border border-gray-800 relative group">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2943.4567890123456!2d-83.3661234!3d42.4591234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDI3JzMyLjgiTiA4M8KwMjEnNTguMCJX!5e0!3m2!1sen!2sus!4v1234567890" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <div class="absolute bottom-4 right-4 bg-garage-red text-white px-4 py-2 rounded font-bold shadow-lg">
+                        View Larger Map
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 bg-garage-red rounded flex items-center justify-center">
+                        <i class="fas fa-wrench text-white text-sm"></i>
+                    </div>
+                    <span class="font-heading text-xl font-bold tracking-wider">LIEBLICH'S GARAGE</span>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2 px-4 py-2 bg-carfax-blue/20 border border-carfax-blue/50 rounded-lg">
+                        <i class="fas fa-award text-carfax-yellow"></i>
+                        <span class="text-white text-sm font-bold">2025 Carfax Top-Rated</span>
+                    </div>
+                </div>
+                
+                <div class="text-gray-500 text-sm text-center md:text-right">
+                    <p>&copy; 2026 Lieblich's Garage. All rights reserved.</p>
+                    <p>29500 W. 9 Mile Rd, Farmington Hills, MI | (248) 477-5513</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
-    if (location.protocol !== 'https:') {
-      location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
-    }
-  </script>
-  </head>
-<body>
-  <!-- Navigation -->
-  <header>
-    <div class="logo">
-      <a href="index.html"><img src="images/logo.png" alt="Lieblich's Garage Logo"></a>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('nav-scrolled');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+                navbar.classList.remove('py-2');
+                navbar.classList.add('py-4');
+            }
+        });
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="content">
-      <h1>Welcome to Lieblich's Garage</h1>
-      <p>Providing trusted auto repair and maintenance services in Farmington Hills for over 50 years.</p>
-      <a href="services.html" class="btn">Explore Our Services</a>
-    </div>
-  </section>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
 
-  <!-- Services Overview -->
-  <section id="services-overview">
-    <h2 class="section-title">Our Expertise</h2>
-    <div class="services-grid">
-      <div class="service-item">
-        <i class="fas fa-oil-can"></i>
-        <h3>Oil Changes &amp; Maintenance</h3>
-        <p>Keep your engine running smoothly with regular oil changes and preventative maintenance.</p>
-      </div>
-      <div class="service-item">
-        <i class="fas fa-car-battery"></i>
-        <h3>Battery &amp; Electrical</h3>
-        <p>Battery testing and replacement, electrical diagnostics and charging system repair.</p>
-      </div>
-      <div class="service-item">
-        <i class="fas fa-car-crash"></i>
-        <h3>Brake Services</h3>
-        <p>From pads and rotors to fluid exchange, we ensure your brakes perform at their best.</p>
-      </div>
-      <div class="service-item">
-        <i class="fas fa-thermometer-half"></i>
-        <h3>Heating &amp; Cooling</h3>
-        <p>Stay comfortable year‑round with expert air conditioning and heating system service.</p>
-      </div>
-    </div>
-  </section>
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
 
-  <!-- Why Choose Us -->
-  <section id="why">
-    <h2 class="section-title">Why Choose Lieblich's?</h2>
-    <div class="why-choose-us">
-      <div class="why-box">
-        <i class="fas fa-clock"></i>
-        <h3>Over 50 Years Experience</h3>
-        <p>Our seasoned technicians have been serving the community since the mid‑‌1970s.</p>
-      </div>
-      <div class="why-box">
-        <i class="fas fa-certificate"></i>
-        <h3>Certified Mechanics</h3>
-        <p>ASE‑certified professionals use the latest technology to diagnose and repair.</p>
-      </div>
-      <div class="why-box">
-        <i class="fas fa-users"></i>
-        <h3>Family Owned</h3>
-        <p>As a locally owned, family‑run shop, we treat every customer like our neighbor.</p>
-      </div>
-      <div class="why-box">
-        <i class="fas fa-handshake"></i>
-        <h3>Honest &amp; Transparent</h3>
-        <p>We believe in fair pricing and clear communication so you can make informed decisions.</p>
-      </div>
-    </div>
-  </section>
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                menu.classList.add('hidden');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-  <!-- Award Section -->
-  <section id="award" style="text-align: center; padding: 3rem 2rem; background-color: #f7f7f7;">
-    <h2 class="section-title">Top‑Rated Service Center</h2>
-    <p style="max-width: 600px; margin: 0 auto 2rem; color: #555;">
-      We’re proud to have been recognized as a 2024 Carfax Top‑Rated Service Center. This badge highlights our
-      commitment to exceptional service and customer satisfaction.
-    </p>
-    <img src="images/badge.png" alt="2024 Carfax Top‑Rated Service Center badge" class="award-badge">
-  </section>
+        // Booking Modal Functions
+        function openBookingModal() {
+            document.getElementById('bookingModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('datePicker').min = today;
+        }
 
-  <!-- Call To Action -->
-  <section class="cta">
-    <h2>Ready to Book Your Service?</h2>
-    <p>Get in touch with us today and experience the difference trusted care makes.</p>
-    <a href="contact.html" class="btn">Contact Us</a>
-  </section>
+        function closeBookingModal() {
+            document.getElementById('bookingModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+            // Reset form
+            document.getElementById('bookingForm').reset();
+            document.getElementById('bookingForm').classList.remove('hidden');
+            document.getElementById('bookingSuccess').classList.add('hidden');
+            // Reset time slots
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                slot.classList.remove('selected');
+            });
+            document.getElementById('selectedTime').value = '';
+        }
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Lieblich's Garage. All rights reserved.</p>
-    <p>29500 W Nine Mile Rd, Farmington Hills, MI 48336 | Phone: <a href="tel:248-477-5513">248‑477‑5513</a> | Email: <a href="mailto:lieblichs247@gmail.com">lieblichs247@gmail.com</a></p>
-  </footer>
+        function selectTime(element, time) {
+            // Remove selected from all slots
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                slot.classList.remove('selected');
+            });
+            // Add selected to clicked slot
+            element.classList.add('selected');
+            // Set hidden input value
+            document.getElementById('selectedTime').value = time;
+        }
+
+        function handleBooking(e) {
+            e.preventDefault();
+            
+            // Validate time selection
+            const timeSelected = document.getElementById('selectedTime').value;
+            if (!timeSelected) {
+                alert('Please select a preferred time slot.');
+                return;
+            }
+
+            // Get form data
+            const formData = new FormData(e.target);
+            const bookingData = {
+                name: formData.get('firstName') + ' ' + formData.get('lastName'),
+                phone: formData.get('phone'),
+                email: formData.get('email'),
+                vehicle: formData.get('vehicleYear') + ' ' + formData.get('vehicleModel'),
+                service: formData.get('serviceType'),
+                date: formData.get('preferredDate'),
+                time: timeSelected,
+                notes: formData.get('notes')
+            };
+
+            // Here you would typically send the data to your server
+            console.log('Booking submitted:', bookingData);
+            
+            // Show success message
+            document.getElementById('bookingForm').classList.add('hidden');
+            document.getElementById('bookingSuccess').classList.remove('hidden');
+        }
+
+        // Service Estimator Logic
+        const estimates = {
+            brakes: {
+                title: "Brake Pad & Rotor Replacement",
+                price: "$250 - $450",
+                desc: "Includes new ceramic brake pads, rotor resurfacing or replacement, and caliper inspection.",
+                includes: ["Remove & inspect rotors", "Install new brake pads", "Caliper inspection", "Brake fluid check", "Road test"]
+            },
+            oil: {
+                title: "Full Synthetic Oil Change",
+                price: "$65 - $95",
+                desc: "Premium synthetic oil change with OEM filter and multi-point inspection.",
+                includes: ["Up to 5 quarts synthetic oil", "Premium oil filter", "Chassis lube", "Fluid top-off", "Tire pressure check"]
+            },
+            tuneup: {
+                title: "Engine Tune-Up",
+                price: "$150 - $400",
+                desc: "Restore engine performance with spark plugs, filters, and diagnostic scan.",
+                includes: ["Replace spark plugs", "Replace air filter", "Replace cabin filter", "Fuel system cleaner", "Computer scan"]
+            }
+        };
+
+        function showEstimate(type) {
+            const display = document.getElementById('estimate-display');
+            const data = estimates[type];
+            
+            document.getElementById('est-title').innerText = data.title;
+            document.getElementById('est-price').innerText = data.price;
+            document.getElementById('est-desc').innerText = data.desc;
+            
+            const list = document.getElementById('est-includes');
+            list.innerHTML = '';
+            data.includes.forEach(item => {
+                list.innerHTML += `<li class="flex items-center gap-2"><i class="fas fa-check text-garage-red text-xs"></i> ${item}</li>`;
+            });
+
+            display.classList.remove('hidden');
+            display.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('bookingModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBookingModal();
+            }
+        });
+    </script>
 </body>
-<htm>l>
+</html>
