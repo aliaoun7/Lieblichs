@@ -3,7 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lieblich's Garage | Farmington Hills Auto Repair</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Lieblich's Garage | Auto Repair Farmington Hills MI | 25+ Years Experience</title>
+    <meta name="description" content="Lieblich's Garage - Family-owned auto repair in Farmington Hills, MI since 1999. ASE certified technicians, honest pricing, 2025 Carfax Top-Rated. Call (248) 477-5513.">
+    <meta name="keywords" content="auto repair Farmington Hills, mechanic 9 Mile Rd, car service Michigan, brake repair, oil change, transmission repair, Lieblich's Garage">
+    <meta name="author" content="Lieblich's Garage">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="business.business">
+    <meta property="og:url" content="https://lieblichsgarage.com">
+    <meta property="og:title" content="Lieblich's Garage | Farmington Hills Auto Repair">
+    <meta property="og:description" content="Family-owned auto repair serving Farmington Hills since 1999. 2025 Carfax Top-Rated Service Center. Honest, reliable, affordable.">
+    <meta property="og:image" content="https://lieblichsgarage.com/og-image.jpg">
+    <meta property="business:contact_data:street_address" content="29500 W 9 Mile Rd">
+    <meta property="business:contact_data:locality" content="Farmington Hills">
+    <meta property="business:contact_data:region" content="MI">
+    <meta property="business:contact_data:postal_code" content="48336">
+    <meta property="business:contact_data:country_name" content="USA">
+    <meta property="business:contact_data:phone_number" content="+12484775513">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lieblichsgarage.com">
+    <meta property="twitter:title" content="Lieblich's Garage | Farmington Hills Auto Repair">
+    <meta property="twitter:description" content="Family-owned auto repair serving Farmington Hills since 1999. 2025 Carfax Top-Rated.">
+    <meta property="twitter:image" content="https://lieblichsgarage.com/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lieblichsgarage.com">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,11 +59,16 @@
                     animation: {
                         'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
                         'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0)' },
                             '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 5px #D92323, 0 0 10px #D92323, 0 0 15px #D92323' },
+                            '100%': { boxShadow: '0 0 10px #D92323, 0 0 20px #D92323, 0 0 30px #D92323' }
                         }
                     }
                 }
@@ -42,6 +77,15 @@
     </script>
 
     <style>
+        /* Respect user's motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
         body {
             font-family: 'Roboto Condensed', sans-serif;
             background-color: #0a0a0a;
@@ -54,17 +98,8 @@
             text-transform: uppercase;
         }
 
-        .text-stroke {
-            -webkit-text-stroke: 1px rgba(255,255,255,0.1);
-            color: transparent;
-        }
-
         .clip-diagonal {
             clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-        }
-
-        .clip-diagonal-reverse {
-            clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
         }
 
         .service-card:hover .service-icon {
@@ -86,12 +121,6 @@
         ::-webkit-scrollbar-thumb {
             background: #D92323;
             border-radius: 5px;
-        }
-
-        .bg-pattern {
-            background-image: radial-gradient(#D92323 1px, transparent 1px);
-            background-size: 30px 30px;
-            opacity: 0.1;
         }
 
         .nav-scrolled {
@@ -198,63 +227,290 @@
             cursor: not-allowed;
             text-decoration: line-through;
         }
+
+        /* Hero Background */
+        .hero-bg {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0a0a 0%, #151515 50%, #0a0a0a 100%);
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(217,35,35,0.6) 0%, transparent 70%);
+            top: -200px;
+            right: -100px;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(217,35,35,0.4) 0%, transparent 70%);
+            bottom: 10%;
+            left: -100px;
+            animation-delay: -5s;
+        }
+
+        .orb-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(139,0,0,0.5) 0%, transparent 70%);
+            top: 40%;
+            right: 20%;
+            animation-delay: -10s;
+        }
+
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(217, 35, 35, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(217, 35, 35, 0.03) 1px, transparent 1px);
+            background-size: 100px 100px;
+            z-index: 1;
+        }
+
+        .diagonal-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 100px,
+                rgba(217, 35, 35, 0.02) 100px,
+                rgba(217, 35, 35, 0.02) 102px
+            );
+            z-index: 1;
+        }
+
+        .vignette {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(10,10,10,1) 0%, transparent 100%);
+            z-index: 2;
+        }
+
+        .car-silhouette {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            height: 35%;
+            background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop');
+            background-size: contain;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            opacity: 0.15;
+            mask-image: linear-gradient(to top, black 0%, transparent 80%);
+            -webkit-mask-image: linear-gradient(to top, black 0%, transparent 80%);
+            z-index: 3;
+        }
+
+        .glow-text {
+            text-shadow: 0 0 20px rgba(217, 35, 35, 0.5), 0 0 40px rgba(217, 35, 35, 0.3);
+        }
+
+        .red-gradient-text {
+            background: linear-gradient(135deg, #ff4444 0%, #D92323 50%, #ff6666 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .review-card {
+            background: linear-gradient(145deg, #1f1f1f 0%, #151515 100%);
+            border: 1px solid rgba(217, 35, 35, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(217, 35, 35, 0.6);
+            box-shadow: 0 10px 40px rgba(217, 35, 35, 0.2);
+        }
+
+        .star-rating {
+            color: #FFD700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .google-logo {
+            background: linear-gradient(135deg, #4285F4 0%, #34A853 25%, #FBBC05 50%, #EA4335 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .verified-badge {
+            background: linear-gradient(135deg, #34A853 0%, #2E7D32 100%);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .local-guide-badge {
+            background: linear-gradient(135deg, #4285F4 0%, #1565C0 100%);
+            color: white;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 9999px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(217, 35, 35, 0.4);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        @keyframes float-particle {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
+        }
+
+        /* Skip to content link for accessibility */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #D92323;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Focus visible styles */
+        *:focus-visible {
+            outline: 2px solid #D92323;
+            outline-offset: 2px;
+        }
+
+        button:focus-visible, a:focus-visible {
+            outline: 2px solid #D92323;
+            outline-offset: 2px;
+        }
+
+        /* NEW: Service Grid Specifics */
+        .service-action-link {
+            transition: all 0.3s ease;
+        }
+        .service-action-link:hover {
+            color: #ff6666;
+            transform: translateX(5px);
+        }
+
+        /* NEW: Advisor Section */
+        .advisor-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .advisor-card:hover {
+            transform: translateY(-5px);
+            border-color: #D92323;
+            box-shadow: 0 10px 30px rgba(217, 35, 35, 0.2);
+        }
+        .advisor-card.active {
+            border-color: #D92323;
+            background: rgba(217, 35, 35, 0.1);
+        }
     </style>
 </head>
 <body class="antialiased">
 
+    <!-- Skip to content link for screen readers -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Floating Particles Container -->
+    <div id="particles" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"></div>
+
     <!-- Booking Modal -->
-    <div id="bookingModal" class="booking-modal">
+    <div id="bookingModal" class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
         <div class="bg-garage-gray w-full max-w-2xl rounded-xl border border-gray-700 shadow-2xl relative max-h-[90vh] overflow-y-auto">
-            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl z-10">
-                <i class="fas fa-times"></i>
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl z-10" aria-label="Close booking modal">
+                <i class="fas fa-times" aria-hidden="true"></i>
             </button>
             
             <div class="p-8">
                 <div class="text-center mb-8">
-                    <div class="inline-flex items-center justify-center w-16 h-16 bg-garage-red rounded-full mb-4">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-garage-red rounded-full mb-4" aria-hidden="true">
                         <i class="fas fa-calendar-check text-2xl text-white"></i>
                     </div>
-                    <h2 class="text-3xl font-bold mb-2">BOOK APPOINTMENT</h2>
+                    <h2 id="booking-title" class="text-3xl font-bold mb-2">BOOK APPOINTMENT</h2>
                     <p class="text-gray-400">Schedule your service at Lieblich's Garage</p>
                 </div>
 
                 <form id="bookingForm" onsubmit="handleBooking(event)">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
-                            <label class="form-label">First Name *</label>
-                            <input type="text" name="firstName" required class="form-input" placeholder="John">
+                            <label class="form-label" for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required class="form-input" placeholder="John" autocomplete="given-name">
                         </div>
                         <div>
-                            <label class="form-label">Last Name *</label>
-                            <input type="text" name="lastName" required class="form-input" placeholder="Doe">
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                        <div>
-                            <label class="form-label">Phone Number *</label>
-                            <input type="tel" name="phone" required class="form-input" placeholder="(248) 555-0123">
-                        </div>
-                        <div>
-                            <label class="form-label">Email Address</label>
-                            <input type="email" name="email" class="form-input" placeholder="john@example.com">
+                            <label class="form-label" for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required class="form-input" placeholder="Doe" autocomplete="family-name">
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
-                            <label class="form-label">Vehicle Year *</label>
-                            <input type="number" name="vehicleYear" required class="form-input" placeholder="2019" min="1900" max="2030">
+                            <label class="form-label" for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required class="form-input" placeholder="(248) 555-0123" autocomplete="tel">
                         </div>
                         <div>
-                            <label class="form-label">Vehicle Make & Model *</label>
-                            <input type="text" name="vehicleModel" required class="form-input" placeholder="Toyota Camry">
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" autocomplete="email">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label class="form-label" for="vehicleYear">Vehicle Year *</label>
+                            <input type="number" id="vehicleYear" name="vehicleYear" required class="form-input" placeholder="2019" min="1900" max="2030">
+                        </div>
+                        <div>
+                            <label class="form-label" for="vehicleModel">Vehicle Make & Model *</label>
+                            <input type="text" id="vehicleModel" name="vehicleModel" required class="form-input" placeholder="Toyota Camry">
                         </div>
                     </div>
 
                     <div class="mb-6">
-                        <label class="form-label">Service Needed *</label>
-                        <select name="serviceType" required class="form-input">
+                        <label class="form-label" for="serviceType">Service Needed *</label>
+                        <select id="serviceType" name="serviceType" required class="form-input">
                             <option value="">Select a service...</option>
                             <option value="oil-change">Oil Change</option>
                             <option value="brake-service">Brake Service</option>
@@ -267,35 +523,35 @@
                     </div>
 
                     <div class="mb-6">
-                        <label class="form-label">Preferred Date *</label>
-                        <input type="date" name="preferredDate" required class="form-input" id="datePicker">
+                        <label class="form-label" for="preferredDate">Preferred Date *</label>
+                        <input type="date" id="preferredDate" name="preferredDate" required class="form-input">
                     </div>
 
                     <div class="mb-6">
                         <label class="form-label">Preferred Time *</label>
-                        <div class="grid grid-cols-3 md:grid-cols-4 gap-3" id="timeSlots">
-                            <div class="time-slot" onclick="selectTime(this, '8:00 AM')">8:00 AM</div>
-                            <div class="time-slot" onclick="selectTime(this, '9:00 AM')">9:00 AM</div>
-                            <div class="time-slot" onclick="selectTime(this, '10:00 AM')">10:00 AM</div>
-                            <div class="time-slot" onclick="selectTime(this, '11:00 AM')">11:00 AM</div>
-                            <div class="time-slot" onclick="selectTime(this, '12:00 PM')">12:00 PM</div>
-                            <div class="time-slot" onclick="selectTime(this, '1:00 PM')">1:00 PM</div>
-                            <div class="time-slot" onclick="selectTime(this, '2:00 PM')">2:00 PM</div>
-                            <div class="time-slot" onclick="selectTime(this, '3:00 PM')">3:00 PM</div>
-                            <div class="time-slot" onclick="selectTime(this, '4:00 PM')">4:00 PM</div>
-                            <div class="time-slot unavailable">5:00 PM</div>
+                        <div class="grid grid-cols-3 md:grid-cols-4 gap-3" role="radiogroup" aria-label="Preferred appointment time">
+                            <div class="time-slot" role="radio" tabindex="0" aria-checked="false" onclick="selectTime(this, '8:00 AM')" onkeypress="if(event.key==='Enter'||event.key===' ') selectTime(this, '8:00 AM')">8:00 AM</div>
+                            <div class="time-slot" role="radio" tabindex="0" aria-checked="false" onclick="selectTime(this, '9:00 AM')" onkeypress="if(event.key==='Enter'||event.key===' ') selectTime(this, '9:00 AM')">9:00 AM</div>
+                            <div class="time-slot" role="radio" tabindex="0" aria-checked="false" onclick="selectTime(this, '10:00 AM')" onkeypress="if(event.key==='Enter'||event.key===' ') selectTime(this, '10:00 AM')">10:00 AM</div>
+                            <div class="time-slot" role="radio" tabindex="0" aria-checked="false" onclick="selectTime(this, '11:00 AM')" onkeypress="if(event.key==='Enter'||event.key===' ') selectTime(this, '11:00 AM')">11:00 AM</div>
+                            <div class="time-slot" role="radio" tabindex="0" aria-checked="false" onclick="selectTime(this, '12:00 PM')" onkeypress="if(event.key==='Enter'||event.key===' ') selectTime(this, '12:00 PM')">12:00 PM</div>
+                            <div class="time-slot" role="radio" tabindex="0" aria-checked="false" onclick="selectTime(this, '1:00 PM')" onkeypress="if(event.key==='Enter'||event.key===' ') selectTime(this, '1:00 PM')">1:00 PM</div>
+                            <div class="time-slot" role="radio" tabindex="0" aria-checked="false" onclick="selectTime(this, '2:00 PM')" onkeypress="if(event.key==='Enter'||event.key===' ') selectTime(this, '2:00 PM')">2:00 PM</div>
+                            <div class="time-slot" role="radio" tabindex="0" aria-checked="false" onclick="selectTime(this, '3:00 PM')" onkeypress="if(event.key==='Enter'||event.key===' ') selectTime(this, '3:00 PM')">3:00 PM</div>
+                            <div class="time-slot" role="radio" tabindex="0" aria-checked="false" onclick="selectTime(this, '4:00 PM')" onkeypress="if(event.key==='Enter'||event.key===' ') selectTime(this, '4:00 PM')">4:00 PM</div>
+                            <div class="time-slot unavailable" role="radio" aria-disabled="true" aria-checked="false">5:00 PM</div>
                         </div>
                         <input type="hidden" name="preferredTime" id="selectedTime" required>
                     </div>
 
                     <div class="mb-6">
-                        <label class="form-label">Additional Notes</label>
-                        <textarea name="notes" rows="3" class="form-input" placeholder="Describe any specific issues or concerns..."></textarea>
+                        <label class="form-label" for="notes">Additional Notes</label>
+                        <textarea id="notes" name="notes" rows="3" class="form-input" placeholder="Describe any specific issues or concerns..."></textarea>
                     </div>
 
                     <div class="bg-garage-black/50 p-4 rounded-lg mb-6 border border-gray-700">
                         <div class="flex items-start gap-3">
-                            <i class="fas fa-info-circle text-garage-red mt-1"></i>
+                            <i class="fas fa-info-circle text-garage-red mt-1" aria-hidden="true"></i>
                             <div class="text-sm text-gray-400">
                                 <p class="text-white font-bold mb-1">Business Hours</p>
                                 <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
@@ -310,8 +566,8 @@
                 </form>
 
                 <!-- Success Message (Hidden by default) -->
-                <div id="bookingSuccess" class="hidden text-center py-12">
-                    <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div id="bookingSuccess" class="hidden text-center py-12" role="alert" aria-live="polite">
+                    <div class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6" aria-hidden="true">
                         <i class="fas fa-check text-3xl text-white"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-4">BOOKING REQUEST RECEIVED!</h3>
@@ -325,14 +581,14 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4">
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4" role="navigation" aria-label="Main navigation">
         <div class="container mx-auto px-6 flex justify-between items-center">
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 bg-garage-red rounded flex items-center justify-center transform group-hover:rotate-12 transition-transform">
-                    <i class="fas fa-wrench text-white text-xl"></i>
+            <a href="#" class="flex items-center gap-3 group" aria-label="Lieblich's Garage - Home">
+                <div class="w-10 h-10 bg-garage-red rounded flex items-center justify-center transform group-hover:rotate-12 transition-transform shadow-[0_0_15px_rgba(217,35,35,0.5)]">
+                    <i class="fas fa-wrench text-white text-xl" aria-hidden="true"></i>
                 </div>
                 <div class="flex flex-col">
-                    <span class="font-heading text-2xl font-bold tracking-wider text-white leading-none">LIEBLICH'S</span>
+                    <span class="font-heading text-2xl font-bold tracking-wider text-white leading-none glow-text">LIEBLICH'S</span>
                     <span class="text-garage-red text-xs tracking-[0.3em] font-bold">GARAGE</span>
                 </div>
             </a>
@@ -340,67 +596,88 @@
             <div class="hidden md:flex items-center gap-8">
                 <a href="#services" class="text-gray-300 hover:text-garage-red font-bold tracking-wide transition-colors">SERVICES</a>
                 <a href="#about" class="text-gray-300 hover:text-garage-red font-bold tracking-wide transition-colors">ABOUT</a>
-                <a href="#awards" class="text-carfax-yellow hover:text-carfax-blue font-bold tracking-wide transition-colors flex items-center gap-2">
-                    <i class="fas fa-award"></i> AWARDS
+                <a href="#reviews" class="text-gray-300 hover:text-garage-red font-bold tracking-wide transition-colors flex items-center gap-2">
+                    <i class="fas fa-star text-yellow-400" aria-hidden="true"></i> REVIEWS
                 </a>
-                <a href="#estimator" class="text-gray-300 hover:text-garage-red font-bold tracking-wide transition-colors">ESTIMATE</a>
-                <button onclick="openBookingModal()" class="px-6 py-2 bg-garage-red text-white font-bold rounded hover:bg-red-700 transition-colors shadow-[0_0_15px_rgba(217,35,35,0.5)]">
+                <a href="#awards" class="text-carfax-yellow hover:text-carfax-blue font-bold tracking-wide transition-colors flex items-center gap-2">
+                    <i class="fas fa-award" aria-hidden="true"></i> AWARDS
+                </a>
+                <a href="#vin-decoder" class="text-gray-300 hover:text-garage-red font-bold tracking-wide transition-colors">VIN DECODER</a>
+                <a href="#advisor" class="text-gray-300 hover:text-garage-red font-bold tracking-wide transition-colors">DIAGNOSTIC</a>
+                <button onclick="openBookingModal()" class="px-6 py-2 bg-garage-red text-white font-bold rounded hover:bg-red-700 transition-colors shadow-[0_0_20px_rgba(217,35,35,0.6)] animate-glow">
                     BOOK NOW
                 </button>
             </div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl">
-                <i class="fas fa-bars"></i>
+            <button id="mobile-menu-btn" class="md:hidden text-white text-2xl" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-garage-dark border-t border-garage-red md:hidden">
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-garage-dark border-t border-garage-red md:hidden" role="menu">
             <div class="flex flex-col p-6 gap-4">
-                <a href="#services" class="text-white hover:text-garage-red font-bold">SERVICES</a>
-                <a href="#about" class="text-white hover:text-garage-red font-bold">ABOUT</a>
-                <a href="#awards" class="text-carfax-yellow font-bold flex items-center gap-2"><i class="fas fa-award"></i> AWARDS</a>
-                <a href="#estimator" class="text-white hover:text-garage-red font-bold">ESTIMATE</a>
-                <button onclick="openBookingModal()" class="text-garage-red font-bold text-left">BOOK NOW</button>
+                <a href="#services" class="text-white hover:text-garage-red font-bold" role="menuitem">SERVICES</a>
+                <a href="#about" class="text-white hover:text-garage-red font-bold" role="menuitem">ABOUT</a>
+                <a href="#reviews" class="text-white hover:text-garage-red font-bold flex items-center gap-2" role="menuitem"><i class="fas fa-star text-yellow-400" aria-hidden="true"></i> REVIEWS</a>
+                <a href="#awards" class="text-carfax-yellow font-bold flex items-center gap-2" role="menuitem"><i class="fas fa-award" aria-hidden="true"></i> AWARDS</a>
+                <a href="#vin-decoder" class="text-white hover:text-garage-red font-bold" role="menuitem">VIN DECODER</a>
+                <a href="#advisor" class="text-white hover:text-garage-red font-bold" role="menuitem">DIAGNOSTIC</a>
+                <button onclick="openBookingModal()" class="text-garage-red font-bold text-left" role="menuitem">BOOK NOW</button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center justify-center overflow-hidden clip-diagonal">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?q=80&w=2832&auto=format&fit=crop" 
-                 alt="Mechanic working" 
-                 class="w-full h-full object-cover opacity-40">
-            <div class="absolute inset-0 bg-gradient-to-b from-garage-black/80 via-garage-black/50 to-garage-black"></div>
-            <div class="absolute inset-0 bg-pattern"></div>
-        </div>
+    <header class="hero-bg relative flex items-center justify-center" role="banner">
+        <!-- Animated Orbs -->
+        <div class="orb orb-1" aria-hidden="true"></div>
+        <div class="orb orb-2" aria-hidden="true"></div>
+        <div class="orb orb-3" aria-hidden="true"></div>
+        
+        <!-- Patterns -->
+        <div class="grid-pattern" aria-hidden="true"></div>
+        <div class="diagonal-lines" aria-hidden="true"></div>
+        
+        <!-- Car Silhouette -->
+        <div class="car-silhouette" aria-hidden="true"></div>
+        
+        <!-- Vignette -->
+        <div class="vignette" aria-hidden="true"></div>
 
-        <div class="container mx-auto px-6 relative z-10 pt-20">
-            <div class="max-w-4xl">
-                <!-- Carfax Award Banner -->
-                <div class="inline-flex items-center gap-3 px-4 py-2 bg-carfax-blue/20 border border-carfax-blue/50 rounded-full mb-6 backdrop-blur-sm animate-float cursor-pointer hover:bg-carfax-blue/30 transition-all" onclick="document.getElementById('awards').scrollIntoView({behavior: 'smooth'})">
-                    <i class="fas fa-star text-carfax-yellow"></i>
-                    <span class="text-white font-bold tracking-wider text-sm">2025 CARFAX TOP-RATED SERVICE CENTER</span>
-                    <i class="fas fa-certificate text-carfax-yellow"></i>
-                </div>
+        <!-- Content -->
+        <div id="main-content" class="container mx-auto px-6 relative z-20 pt-20 text-center" tabindex="-1">
+            <!-- Carfax Award Banner -->
+            <div class="inline-flex items-center gap-3 px-4 py-2 bg-carfax-blue/20 border border-carfax-blue/50 rounded-full mb-6 backdrop-blur-sm animate-float cursor-pointer hover:bg-carfax-blue/30 transition-all" onclick="document.getElementById('awards').scrollIntoView({behavior: 'smooth'})" role="button" tabindex="0" aria-label="View our Carfax award">
+                <i class="fas fa-star text-carfax-yellow" aria-hidden="true"></i>
+                <span class="text-white font-bold tracking-wider text-sm">2025 CARFAX TOP-RATED SERVICE CENTER</span>
+                <i class="fas fa-certificate text-carfax-yellow" aria-hidden="true"></i>
+            </div>
 
-                <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-tight">
-                    LIEBLICH'S <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-garage-red to-red-600">GARAGE</span>
+            <div class="max-w-5xl mx-auto">
+                <p class="text-garage-red font-bold tracking-[0.3em] text-sm mb-4 uppercase">Farmington Hills' Most Trusted Auto Repair</p>
+                
+                <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 leading-none glow-text">
+                    LIEBLICH'S<br>
+                    <span class="red-gradient-text">GARAGE</span>
                 </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl font-light border-l-4 border-garage-red pl-6">
-                    Family-owned auto repair serving Farmington Hills with integrity. 
+                
+                <p class="text-2xl md:text-4xl font-bold text-white mb-8 tracking-wide">
+                    HONEST. RELIABLE. AFFORDABLE.
+                </p>
+                
+                <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                    Family-owned auto repair serving Metro Detroit with integrity since 1999. 
                     From routine maintenance to complex engine rebuilds.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <button onclick="openBookingModal()" class="px-8 py-4 bg-garage-red text-white font-bold text-lg rounded hover:bg-red-700 transition-all transform hover:scale-105 flex items-center justify-center gap-3 shadow-[0_0_20px_rgba(217,35,35,0.4)]">
-                        <i class="fas fa-calendar-check"></i>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="openBookingModal()" class="px-10 py-5 bg-garage-red text-white font-bold text-lg rounded hover:bg-red-700 transition-all transform hover:scale-105 flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(217,35,35,0.6)] animate-glow">
+                        <i class="fas fa-calendar-check" aria-hidden="true"></i>
                         BOOK APPOINTMENT
                     </button>
-                    <a href="tel:248-477-5513" class="px-8 py-4 border-2 border-white text-white font-bold text-lg rounded hover:bg-white hover:text-black transition-all flex items-center justify-center gap-3">
-                        <i class="fas fa-phone-alt"></i>
+                    <a href="tel:248-477-5513" class="px-10 py-5 border-2 border-white text-white font-bold text-lg rounded hover:bg-white hover:text-black transition-all flex items-center justify-center gap-3">
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i>
                         CALL (248) 477-5513
                     </a>
                 </div>
@@ -408,29 +685,29 @@
         </div>
 
         <!-- Scroll Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <i class="fas fa-chevron-down text-garage-red text-2xl"></i>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20" aria-hidden="true">
+            <i class="fas fa-chevron-down text-garage-red text-3xl"></i>
         </div>
     </header>
 
     <!-- Info Bar -->
-    <div class="bg-garage-red py-4 relative z-20 -mt-20 mx-4 md:mx-20 rounded-lg shadow-2xl flex flex-wrap justify-center items-center gap-8 md:gap-16 text-center">
+    <div class="bg-garage-red py-6 relative z-30 -mt-20 mx-4 md:mx-20 rounded-lg shadow-2xl flex flex-wrap justify-center items-center gap-8 md:gap-16 text-center border-2 border-red-600">
         <div class="flex items-center gap-3">
-            <i class="fas fa-map-marker-alt text-2xl text-white"></i>
+            <i class="fas fa-map-marker-alt text-2xl text-white" aria-hidden="true"></i>
             <div class="text-left">
                 <p class="text-xs text-red-200 font-bold uppercase">Location</p>
                 <p class="font-bold text-white">29500 W. 9 Mile Rd</p>
             </div>
         </div>
         <div class="flex items-center gap-3">
-            <i class="fas fa-clock text-2xl text-white"></i>
+            <i class="fas fa-clock text-2xl text-white" aria-hidden="true"></i>
             <div class="text-left">
                 <p class="text-xs text-red-200 font-bold uppercase">Hours</p>
                 <p class="font-bold text-white">Mon-Fri: 8AM - 6PM</p>
             </div>
         </div>
         <div class="flex items-center gap-3">
-            <i class="fas fa-tools text-2xl text-white"></i>
+            <i class="fas fa-tools text-2xl text-white" aria-hidden="true"></i>
             <div class="text-left">
                 <p class="text-xs text-red-200 font-bold uppercase">Service</p>
                 <p class="font-bold text-white">All Makes & Models</p>
@@ -438,10 +715,162 @@
         </div>
     </div>
 
+    <!-- Google Reviews Section -->
+    <section id="reviews" class="py-24 relative overflow-hidden bg-garage-black" aria-labelledby="reviews-heading">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-garage-red to-transparent"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 border border-white/20 rounded-full mb-4">
+                    <i class="fab fa-google google-logo text-xl" aria-hidden="true"></i>
+                    <span class="text-white font-bold tracking-wider text-sm">REAL CUSTOMER REVIEWS</span>
+                </div>
+                <h2 id="reviews-heading" class="text-5xl font-bold mb-4 glow-text">WHAT OUR <span class="red-gradient-text">CUSTOMERS SAY</span></h2>
+                <div class="flex items-center justify-center gap-2 mb-4">
+                    <div class="flex star-rating text-3xl" aria-label="5 out of 5 stars">
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                        <i class="fas fa-star" aria-hidden="true"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-white ml-2">5.0</span>
+                </div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Authentic reviews from Google. See why Farmington Hills trusts Lieblich's Garage.
+                </p>
+            </div>
+
+            <!-- Reviews Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12 max-w-6xl mx-auto">
+                <!-- Review 1 - Ray W. (Anonymized) -->
+                <article class="review-card rounded-xl p-8 relative">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-1 star-rating text-xl" aria-label="5 stars">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                        </div>
+                        <span class="verified-badge"><i class="fas fa-check-circle mr-1" aria-hidden="true"></i>Verified</span>
+                    </div>
+                    
+                    <h3 class="text-garage-red font-bold text-lg mb-2">Great price</h3>
+                    
+                    <blockquote class="text-gray-300 mb-6 leading-relaxed text-lg">
+                        "Extremely honest staff and very reasonable pricing. Customer service was a 10/10. I was told at other mechanic shops that i had a cracked head gasket, my vehicle was diagnosed at Lieblich's and it turned out my valve cover gasket was leaking, no cracked head gasket at all. These guys saved me thousands of dollars, can not thank them enough!!"
+                    </blockquote>
+                    
+                    <footer class="flex items-center gap-3 border-t border-gray-700 pt-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-garage-red to-red-800 rounded-full flex items-center justify-center text-white font-bold text-lg" aria-hidden="true">RW</div>
+                        <div>
+                            <p class="font-bold text-white text-lg">Ray W.</p>
+                            <div class="flex items-center gap-2 text-sm text-gray-500">
+                                <span>1 review</span>
+                                <span aria-hidden="true">•</span>
+                                <time datetime="2025-01-15">a month ago</time>
+                            </div>
+                        </div>
+                        <i class="fab fa-google text-gray-600 ml-auto text-2xl" aria-hidden="true"></i>
+                    </footer>
+                </article>
+
+                <!-- Review 2 - Autumn H. (Anonymized) -->
+                <article class="review-card rounded-xl p-8 relative">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-1 star-rating text-xl" aria-label="5 stars">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="local-guide-badge"><i class="fas fa-compass mr-1" aria-hidden="true"></i>Local Guide</span>
+                            <span class="verified-badge"><i class="fas fa-check-circle mr-1" aria-hidden="true"></i>Verified</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-garage-red font-bold text-lg mb-2">Reasonable price</h3>
+                    
+                    <blockquote class="text-gray-300 mb-6 leading-relaxed text-lg">
+                        "I love this place! I'm a single mom and I went to multiple shops before choosing this one. I feel super comfortable with everyone there. They treat you like a family member. They remember who I am when I call. They are just extremely personable and friendly. Their pricing is fair and they get jobs done as quickly as they possibly can(which is really helpful when you have to cart kids around every day.) They have worked on electrical issues with my headlights, a check engine light issue that was no big deal to remedy, and they are working on my air conditioning as well. I definitely recommend 100%. Especially if you are a single woman and have anxiety about getting ripped off. That will not happen here!!!!!"
+                    </blockquote>
+                    
+                    <footer class="flex items-center gap-3 border-t border-gray-700 pt-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center text-white font-bold text-lg" aria-hidden="true">AH</div>
+                        <div>
+                            <p class="font-bold text-white text-lg">Autumn H.</p>
+                            <div class="flex items-center gap-2 text-sm text-gray-500">
+                                <span>Local Guide · 18 reviews · 3 photos</span>
+                                <span aria-hidden="true">•</span>
+                                <time datetime="2024-09-20">5 months ago</time>
+                            </div>
+                        </div>
+                        <i class="fab fa-google text-gray-600 ml-auto text-2xl" aria-hidden="true"></i>
+                    </footer>
+                </article>
+
+                <!-- Review 3 - Family Customer -->
+                <article class="review-card rounded-xl p-8 relative lg:col-span-2">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex items-center gap-1 star-rating text-xl" aria-label="5 stars">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                        </div>
+                        <span class="verified-badge"><i class="fas fa-check-circle mr-1" aria-hidden="true"></i>Verified</span>
+                    </div>
+                    
+                    <blockquote class="text-gray-300 mb-6 leading-relaxed text-lg italic">
+                        "These are people who care about people & earn your business by their exceptional job performance at an affordable cost. They have an incredible shop with all the newest technology & treat your vehicle with the utmost respect. They have serviced our family vehicles for many years & we have never felt disappointed. Thank you for treating us like family, it's a blessing to have people we can trust."
+                    </blockquote>
+                    
+                    <footer class="flex items-center gap-3 border-t border-gray-700 pt-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-600 to-green-800 rounded-full flex items-center justify-center text-white font-bold text-lg" aria-hidden="true">FC</div>
+                        <div>
+                            <p class="font-bold text-white text-lg">Family Customer</p>
+                            <div class="flex items-center gap-2 text-sm text-gray-500">
+                                <span>Long-term Client</span>
+                                <span aria-hidden="true">•</span>
+                                <time datetime="2024-02-15">a year ago</time>
+                            </div>
+                        </div>
+                        <i class="fab fa-google text-gray-600 ml-auto text-2xl" aria-hidden="true"></i>
+                    </footer>
+                </article>
+            </div>
+
+            <!-- Review Highlights -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 max-w-4xl mx-auto">
+                <div class="bg-garage-gray/50 rounded-lg p-6 text-center border border-gray-800">
+                    <i class="fas fa-hand-holding-heart text-4xl text-garage-red mb-3" aria-hidden="true"></i>
+                    <h3 class="font-bold text-white mb-2">Honest & Trustworthy</h3>
+                    <p class="text-gray-400 text-sm">"Saved me thousands of dollars"</p>
+                </div>
+                <div class="bg-garage-gray/50 rounded-lg p-6 text-center border border-gray-800">
+                    <i class="fas fa-users text-4xl text-garage-red mb-3" aria-hidden="true"></i>
+                    <h3 class="font-bold text-white mb-2">Family Atmosphere</h3>
+                    <p class="text-gray-400 text-sm">"They treat you like family"</p>
+                </div>
+                <div class="bg-garage-gray/50 rounded-lg p-6 text-center border border-gray-800">
+                    <i class="fas fa-dollar-sign text-4xl text-garage-red mb-3" aria-hidden="true"></i>
+                    <h3 class="font-bold text-white mb-2">Fair Pricing</h3>
+                    <p class="text-gray-400 text-sm">"Affordable cost & exceptional service"</p>
+                </div>
+            </div>
+
+            <!-- View All Reviews CTA - REMOVED AS REQUESTED -->
+        </div>
+    </section>
+
     <!-- Awards & Recognition Section -->
-    <section id="awards" class="py-24 bg-gradient-to-b from-garage-dark to-garage-black relative overflow-hidden">
+    <section id="awards" class="py-24 bg-gradient-to-b from-garage-black to-garage-dark relative overflow-hidden" aria-labelledby="awards-heading">
         <!-- Background Elements -->
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-10" aria-hidden="true">
             <div class="absolute top-10 left-10 text-9xl text-carfax-blue font-bold rotate-12">CARFAX</div>
             <div class="absolute bottom-10 right-10 text-9xl text-carfax-yellow font-bold -rotate-12">2025</div>
         </div>
@@ -451,7 +880,7 @@
                 <div class="inline-block px-4 py-1 bg-carfax-blue/20 border border-carfax-blue rounded-full mb-4">
                     <span class="text-carfax-yellow font-bold tracking-widest text-sm">RECOGNIZED EXCELLENCE</span>
                 </div>
-                <h2 class="text-5xl font-bold mb-4">AWARD WINNING <span class="text-carfax-blue">SERVICE</span></h2>
+                <h2 id="awards-heading" class="text-5xl font-bold mb-4 glow-text">AWARD WINNING <span class="text-carfax-blue">SERVICE</span></h2>
                 <div class="w-24 h-1 bg-gradient-to-r from-carfax-blue to-carfax-yellow mx-auto"></div>
                 <p class="mt-4 text-gray-400 max-w-2xl mx-auto">
                     Our commitment to quality and customer satisfaction has been recognized by industry leaders.
@@ -461,7 +890,7 @@
             <div class="max-w-4xl mx-auto">
                 <div class="award-badge bg-gradient-to-br from-carfax-blue to-blue-800 rounded-2xl p-8 md:p-12 border-4 border-carfax-yellow relative overflow-hidden badge-glow">
                     <!-- Decorative Stars -->
-                    <div class="absolute top-4 left-1/2 transform -translate-x-1/2 flex gap-2">
+                    <div class="absolute top-4 left-1/2 transform -translate-x-1/2 flex gap-2" aria-hidden="true">
                         <i class="fas fa-star text-carfax-yellow text-2xl animate-pulse"></i>
                         <i class="fas fa-star text-carfax-yellow text-2xl animate-pulse" style="animation-delay: 0.1s"></i>
                         <i class="fas fa-star text-carfax-yellow text-2xl animate-pulse" style="animation-delay: 0.2s"></i>
@@ -472,7 +901,7 @@
                     <div class="flex flex-col md:flex-row items-center gap-8 mt-8">
                         <div class="w-48 h-48 flex-shrink-0 bg-white rounded-full flex items-center justify-center border-4 border-carfax-yellow shadow-2xl relative">
                             <div class="absolute inset-0 bg-gradient-to-br from-carfax-blue/20 to-transparent rounded-full"></div>
-                            <i class="fas fa-car text-6xl text-carfax-blue relative z-10"></i>
+                            <i class="fas fa-car text-6xl text-carfax-blue relative z-10" aria-hidden="true"></i>
                             <div class="absolute -bottom-2 bg-carfax-yellow text-carfax-blue font-bold px-4 py-1 rounded-full text-sm shadow-lg">
                                 CARFAX
                             </div>
@@ -480,23 +909,23 @@
                         
                         <div class="text-center md:text-left flex-1">
                             <div class="text-carfax-yellow font-bold text-xl mb-2 tracking-wider">PROUD RECIPIENT</div>
-                            <h3 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
+                            <h3 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight glow-text">
                                 2025 TOP-RATED<br>SERVICE CENTER
                             </h3>
                             <p class="text-blue-100 text-lg mb-6">
-                                Lieblich's Marathon has been recognized by Carfax for outstanding service excellence and customer satisfaction. This prestigious award is given to service centers that consistently deliver superior automotive care.
+                                Lieblich's Garage has been recognized by Carfax for outstanding service excellence and customer satisfaction. This prestigious award is given to service centers that consistently deliver superior automotive care.
                             </p>
                             <div class="flex flex-wrap gap-4 justify-center md:justify-start">
                                 <div class="flex items-center gap-2 text-white bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
-                                    <i class="fas fa-check-circle text-carfax-yellow"></i>
+                                    <i class="fas fa-check-circle text-carfax-yellow" aria-hidden="true"></i>
                                     <span class="font-bold">Verified Reviews</span>
                                 </div>
                                 <div class="flex items-center gap-2 text-white bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
-                                    <i class="fas fa-check-circle text-carfax-yellow"></i>
+                                    <i class="fas fa-check-circle text-carfax-yellow" aria-hidden="true"></i>
                                     <span class="font-bold">Quality Service</span>
                                 </div>
                                 <div class="flex items-center gap-2 text-white bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
-                                    <i class="fas fa-check-circle text-carfax-yellow"></i>
+                                    <i class="fas fa-check-circle text-carfax-yellow" aria-hidden="true"></i>
                                     <span class="font-bold">Trusted Care</span>
                                 </div>
                             </div>
@@ -504,7 +933,7 @@
                     </div>
 
                     <!-- Ribbon -->
-                    <div class="absolute -right-12 top-8 bg-carfax-yellow text-carfax-blue font-bold py-2 px-12 transform rotate-45 shadow-lg text-sm tracking-wider">
+                    <div class="absolute -right-12 top-8 bg-carfax-yellow text-carfax-blue font-bold py-2 px-12 transform rotate-45 shadow-lg text-sm tracking-wider" aria-hidden="true">
                         2025 WINNER
                     </div>
                 </div>
@@ -513,76 +942,133 @@
             <!-- Trust Indicators -->
             <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div class="p-6 bg-garage-gray rounded-lg border border-gray-800 hover:border-carfax-blue transition-colors">
-                    <i class="fas fa-award text-4xl text-carfax-blue mb-4"></i>
-                    <h4 class="font-bold text-xl mb-2">Industry Recognized</h4>
+                    <i class="fas fa-award text-4xl text-carfax-blue mb-4" aria-hidden="true"></i>
+                    <h3 class="font-bold text-xl mb-2">Industry Recognized</h3>
                     <p class="text-gray-400">Carfax Top-Rated Service Center 2025</p>
                 </div>
                 <div class="p-6 bg-garage-gray rounded-lg border border-gray-800 hover:border-carfax-blue transition-colors">
-                    <i class="fas fa-users text-4xl text-carfax-blue mb-4"></i>
-                    <h4 class="font-bold text-xl mb-2">Customer Approved</h4>
+                    <i class="fas fa-users text-4xl text-carfax-blue mb-4" aria-hidden="true"></i>
+                    <h3 class="font-bold text-xl mb-2">Customer Approved</h3>
                     <p class="text-gray-400">Based on verified customer reviews</p>
                 </div>
                 <div class="p-6 bg-garage-gray rounded-lg border border-gray-800 hover:border-carfax-blue transition-colors">
-                    <i class="fas fa-shield-alt text-4xl text-carfax-blue mb-4"></i>
-                    <h4 class="font-bold text-xl mb-2">Service Guaranteed</h4>
+                    <i class="fas fa-shield-alt text-4xl text-carfax-blue mb-4" aria-hidden="true"></i>
+                    <h3 class="font-bold text-xl mb-2">Service Guaranteed</h3>
                     <p class="text-gray-400">Quality workmanship on every repair</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="py-24 bg-garage-dark relative">
-        <div class="container mx-auto px-6">
+    <!-- NEW SERVICES SECTION (Based on Screenshot) -->
+    <section id="services" class="py-24 relative bg-garage-dark" aria-labelledby="services-heading">
+        <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
-                <h2 class="text-5xl font-bold mb-4">WHAT WE <span class="text-garage-red">FIX</span></h2>
-                <div class="w-24 h-1 bg-garage-red mx-auto"></div>
-                <p class="mt-4 text-gray-400">Comprehensive automotive care for your daily driver or classic ride.</p>
+                <div class="inline-flex items-center gap-2 px-4 py-2 bg-garage-red/10 border border-garage-red/30 rounded-full mb-4">
+                    <i class="fas fa-wrench text-garage-red text-sm" aria-hidden="true"></i>
+                    <span class="text-garage-red text-xs font-bold tracking-wider">WHAT WE DO BEST</span>
+                </div>
+                <h2 id="services-heading" class="text-5xl md:text-6xl font-bold mb-4 glow-text">SERVICES THAT <span class="red-gradient-text">WIN</span></h2>
+                <p class="mt-4 text-gray-400 text-lg">Built for real customers: fast, accurate, and no nonsense.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Service 1 -->
-                <div class="service-card bg-garage-gray p-8 rounded-lg border border-gray-800 hover:border-garage-red transition-all group cursor-pointer">
-                    <div class="service-icon text-5xl text-gray-500 mb-6">
-                        <i class="fas fa-car-crash"></i>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                <!-- Service 1: Diagnostics -->
+                <article class="service-card bg-[#16161a] p-8 rounded-2xl border border-gray-800 hover:border-garage-red/50 transition-all group relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-garage-red/20 rounded-lg flex items-center justify-center text-garage-red group-hover:bg-garage-red group-hover:text-white transition-colors">
+                            <i class="fas fa-desktop text-xl"></i>
+                        </div>
+                        <span class="text-gray-600 text-xs font-bold tracking-widest">DIAG</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-garage-red transition-colors">Diagnostics</h3>
-                    <p class="text-gray-400">Advanced computer scanning and electrical system diagnostics to find the root cause.</p>
-                </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-garage-red transition-colors">DIAGNOSTICS</h3>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">Advanced scan + pinpoint testing. We confirm the failure, then fix it.</p>
+                    <a href="#" onclick="openBookingModal(); document.getElementById('serviceType').value='diagnostics'; return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
+                        Book Diagnostics <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
 
-                <!-- Service 2 -->
-                <div class="service-card bg-garage-gray p-8 rounded-lg border border-gray-800 hover:border-garage-red transition-all group cursor-pointer">
-                    <div class="service-icon text-5xl text-gray-500 mb-6">
-                        <i class="fas fa-oil-can"></i>
+                <!-- Service 2: Brakes -->
+                <article class="service-card bg-[#16161a] p-8 rounded-2xl border border-gray-800 hover:border-garage-red/50 transition-all group relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-garage-red/20 rounded-lg flex items-center justify-center text-garage-red group-hover:bg-garage-red group-hover:text-white transition-colors">
+                            <i class="fas fa-compact-disc text-xl"></i>
+                        </div>
+                        <span class="text-gray-600 text-xs font-bold tracking-widest">SAFETY</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-garage-red transition-colors">Maintenance</h3>
-                    <p class="text-gray-400">Oil changes, fluid flushes, filter replacements, and scheduled factory maintenance.</p>
-                </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-garage-red transition-colors">BRAKES</h3>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">Pads, rotors, calipers, fluid service – quiet, smooth, and safe.</p>
+                    <a href="#" onclick="openBookingModal(); document.getElementById('serviceType').value='brake-service'; return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
+                        Get Estimate <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
 
-                <!-- Service 3 -->
-                <div class="service-card bg-garage-gray p-8 rounded-lg border border-gray-800 hover:border-garage-red transition-all group cursor-pointer">
-                    <div class="service-icon text-5xl text-gray-500 mb-6">
-                        <i class="fas fa-car-battery"></i>
+                <!-- Service 3: Maintenance -->
+                <article class="service-card bg-[#16161a] p-8 rounded-2xl border border-gray-800 hover:border-garage-red/50 transition-all group relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-garage-red/20 rounded-lg flex items-center justify-center text-garage-red group-hover:bg-garage-red group-hover:text-white transition-colors">
+                            <i class="fas fa-oil-can text-xl"></i>
+                        </div>
+                        <span class="text-gray-600 text-xs font-bold tracking-widest">MAINT</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-garage-red transition-colors">Electrical</h3>
-                    <p class="text-gray-400">Battery testing, alternator repair, starter replacement, and wiring issues.</p>
-                </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-garage-red transition-colors">MAINTENANCE</h3>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">Factory schedules, fluids, filters – keep it reliable and avoid surprises.</p>
+                    <a href="#" onclick="openBookingModal(); document.getElementById('serviceType').value='oil-change'; return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
+                        Get Estimate <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
 
-                <!-- Service 4 -->
-                <div class="service-card bg-garage-gray p-8 rounded-lg border border-gray-800 hover:border-garage-red transition-all group cursor-pointer">
-                    <div class="service-icon text-5xl text-gray-500 mb-6">
-                        <i class="fas fa-tire"></i>
+                <!-- Service 4: Electrical -->
+                <article class="service-card bg-[#16161a] p-8 rounded-2xl border border-gray-800 hover:border-garage-red/50 transition-all group relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-garage-red/20 rounded-lg flex items-center justify-center text-garage-red group-hover:bg-garage-red group-hover:text-white transition-colors">
+                            <i class="fas fa-bolt text-xl"></i>
+                        </div>
+                        <span class="text-gray-600 text-xs font-bold tracking-widest">ELECT</span>
                     </div>
-                    <h3 class="text-2xl font-bold mb-3 group-hover:text-garage-red transition-colors">Brakes & Tires</h3>
-                    <p class="text-gray-400">Brake pad replacement, rotor resurfacing, tire rotation, and alignment services.</p>
-                </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-garage-red transition-colors">ELECTRICAL</h3>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">Starting/charging, parasitic drains, modules, sensors, wiring issues.</p>
+                    <a href="#" onclick="openBookingModal(); document.getElementById('serviceType').value='battery'; return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
+                        Book Electrical <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Service 5: A/C & Heat -->
+                <article class="service-card bg-[#16161a] p-8 rounded-2xl border border-gray-800 hover:border-garage-red/50 transition-all group relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-garage-red/20 rounded-lg flex items-center justify-center text-garage-red group-hover:bg-garage-red group-hover:text-white transition-colors">
+                            <i class="fas fa-snowflake text-xl"></i>
+                        </div>
+                        <span class="text-gray-600 text-xs font-bold tracking-widest">A/C</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-garage-red transition-colors">A/C & HEAT</h3>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">Cold air fast. Leak checks, compressors, recharge, blend doors.</p>
+                    <a href="#" onclick="openBookingModal(); document.getElementById('serviceType').value='other'; return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
+                        Book A/C Service <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
+
+                <!-- Service 6: Tires & Alignment -->
+                <article class="service-card bg-[#16161a] p-8 rounded-2xl border border-gray-800 hover:border-garage-red/50 transition-all group relative overflow-hidden">
+                    <div class="flex justify-between items-start mb-6">
+                        <div class="w-12 h-12 bg-garage-red/20 rounded-lg flex items-center justify-center text-garage-red group-hover:bg-garage-red group-hover:text-white transition-colors">
+                            <i class="fas fa-dharmachakra text-xl"></i>
+                        </div>
+                        <span class="text-gray-600 text-xs font-bold tracking-widest">RIDE</span>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-garage-red transition-colors">TIRES & ALIGNMENT</h3>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed">Smooth ride, even wear. Rotations, balance, alignments, inspection.</p>
+                    <a href="#" onclick="openBookingModal(); document.getElementById('serviceType').value='tires'; return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
+                        Book Tires <i class="fas fa-arrow-right"></i>
+                    </a>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- About / Why Choose Us -->
-    <section id="about" class="py-24 bg-garage-black relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-garage-red/5 clip-diagonal-reverse hidden lg:block"></div>
+    <section id="about" class="py-24 relative overflow-hidden bg-garage-black" aria-labelledby="about-heading">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-garage-red/5 to-transparent hidden lg:block" aria-hidden="true"></div>
         
         <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col lg:flex-row items-center gap-16">
@@ -590,9 +1076,10 @@
                     <div class="relative">
                         <div class="absolute -top-4 -left-4 w-full h-full border-2 border-garage-red rounded-lg"></div>
                         <img src="https://images.unsplash.com/photo-1625047509168-a7026f36de04?q=80&w=2000&auto=format&fit=crop" 
-                             alt="Mechanic working on engine" 
-                             class="rounded-lg shadow-2xl relative z-10 grayscale hover:grayscale-0 transition-all duration-500">
-                        <div class="absolute -bottom-6 -right-6 bg-garage-red p-6 rounded-lg shadow-xl z-20 hidden md:block">
+                             alt="ASE certified mechanic working on car engine at Lieblich's Garage" 
+                             class="rounded-lg shadow-2xl relative z-10 grayscale hover:grayscale-0 transition-all duration-500"
+                             loading="lazy">
+                        <div class="absolute -bottom-6 -right-6 bg-garage-red p-6 rounded-lg shadow-xl z-20 hidden md:block animate-glow">
                             <p class="text-4xl font-bold">25+</p>
                             <p class="text-sm uppercase tracking-widest">Years Experience</p>
                         </div>
@@ -601,10 +1088,10 @@
                 
                 <div class="lg:w-1/2">
                     <div class="inline-flex items-center gap-2 px-3 py-1 bg-carfax-blue/20 border border-carfax-blue rounded-full mb-4">
-                        <i class="fas fa-award text-carfax-yellow text-sm"></i>
+                        <i class="fas fa-award text-carfax-yellow text-sm" aria-hidden="true"></i>
                         <span class="text-carfax-yellow text-xs font-bold tracking-wider">CARFAX TOP-RATED 2025</span>
                     </div>
-                    <h2 class="text-5xl font-bold mb-6">BUILT ON <span class="text-garage-red">TRUST</span></h2>
+                    <h2 id="about-heading" class="text-5xl font-bold mb-6 glow-text">BUILT ON <span class="red-gradient-text">TRUST</span></h2>
                     <p class="text-gray-300 text-lg mb-6 leading-relaxed">
                         At Lieblich's Garage, we treat your car like it's our own. Located in the heart of Farmington Hills, 
                         we've built our reputation on honest diagnostics, fair pricing, and quality workmanship.
@@ -617,19 +1104,19 @@
                     
                     <div class="grid grid-cols-2 gap-6">
                         <div class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-garage-red text-xl"></i>
+                            <i class="fas fa-check-circle text-garage-red text-xl" aria-hidden="true"></i>
                             <span class="font-bold">ASE Certified Techs</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-garage-red text-xl"></i>
+                            <i class="fas fa-check-circle text-garage-red text-xl" aria-hidden="true"></i>
                             <span class="font-bold">Fair Pricing</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-garage-red text-xl"></i>
+                            <i class="fas fa-check-circle text-garage-red text-xl" aria-hidden="true"></i>
                             <span class="font-bold">Local Family Owned</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <i class="fas fa-check-circle text-garage-red text-xl"></i>
+                            <i class="fas fa-check-circle text-garage-red text-xl" aria-hidden="true"></i>
                             <span class="font-bold">Carfax Top-Rated</span>
                         </div>
                     </div>
@@ -638,46 +1125,384 @@
         </div>
     </section>
 
-    <!-- Interactive Estimator -->
-    <section id="estimator" class="py-24 bg-garage-gray relative">
-        <div class="container mx-auto px-6 max-w-4xl">
+    <!-- VIN Decoder Section -->
+    <section id="vin-decoder" class="py-24 relative overflow-hidden bg-garage-dark" aria-labelledby="vin-heading">
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-garage-red to-transparent"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-12">
-                <h2 class="text-4xl font-bold mb-4">SERVICE <span class="text-garage-red">ESTIMATOR</span></h2>
-                <p class="text-gray-400">Select your issue below to get a rough estimate. Final price depends on vehicle make/model.</p>
+                <div class="inline-flex items-center gap-2 px-4 py-1 bg-garage-red/20 border border-garage-red rounded-full mb-4">
+                    <i class="fas fa-search text-garage-red text-sm" aria-hidden="true"></i>
+                    <span class="text-garage-red text-xs font-bold tracking-wider">FREE TOOL</span>
+                </div>
+                <h2 id="vin-heading" class="text-5xl font-bold mb-4 glow-text">VIN <span class="red-gradient-text">DECODER</span></h2>
+                <div class="w-24 h-1 bg-garage-red mx-auto mb-4"></div>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Enter your Vehicle Identification Number to instantly retrieve detailed specifications. 
+                    Powered by NHTSA database.
+                </p>
             </div>
 
-            <div class="bg-garage-black p-8 rounded-xl border border-gray-800 shadow-2xl">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                    <button onclick="showEstimate('brakes')" class="estimate-btn p-4 bg-garage-gray hover:bg-garage-red rounded-lg transition-all text-center group border border-gray-700 hover:border-garage-red">
-                        <i class="fas fa-compact-disc text-3xl mb-2 text-gray-400 group-hover:text-white"></i>
-                        <div class="font-bold">Brake Job</div>
-                    </button>
-                    <button onclick="showEstimate('oil')" class="estimate-btn p-4 bg-garage-gray hover:bg-garage-red rounded-lg transition-all text-center group border border-gray-700 hover:border-garage-red">
-                        <i class="fas fa-oil-can text-3xl mb-2 text-gray-400 group-hover:text-white"></i>
-                        <div class="font-bold">Oil Change</div>
-                    </button>
-                    <button onclick="showEstimate('tuneup')" class="estimate-btn p-4 bg-garage-gray hover:bg-garage-red rounded-lg transition-all text-center group border border-gray-700 hover:border-garage-red">
-                        <i class="fas fa-bolt text-3xl mb-2 text-gray-400 group-hover:text-white"></i>
-                        <div class="font-bold">Tune Up</div>
-                    </button>
-                </div>
+            <!-- Decoder Input Card -->
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-garage-gray rounded-2xl p-8 md:p-12 border border-gray-800 shadow-2xl relative overflow-hidden">
+                    <!-- Decorative Elements -->
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-garage-red/10 rounded-full blur-3xl" aria-hidden="true"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-garage-red/5 rounded-full blur-2xl" aria-hidden="true"></div>
 
-                <div id="estimate-display" class="hidden bg-garage-dark p-6 rounded-lg border-l-4 border-garage-red animate-fade-in">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3 id="est-title" class="text-2xl font-bold text-white mb-2">Service Name</h3>
-                            <p id="est-desc" class="text-gray-400 mb-4">Description goes here.</p>
-                            <ul id="est-includes" class="text-sm text-gray-300 space-y-1 mb-4">
-                                <!-- List items -->
-                            </ul>
+                    <div class="relative z-10">
+                        <!-- Input Area -->
+                        <div class="mb-6">
+                            <label class="form-label text-center block mb-4 text-lg" for="vinInput">Enter 17-Digit VIN Number</label>
+                            <div class="relative">
+                                <input 
+                                    type="text" 
+                                    id="vinInput" 
+                                    maxlength="17" 
+                                    class="form-input text-center text-2xl tracking-widest uppercase font-mono py-6 border-2 border-gray-700 focus:border-garage-red bg-garage-black/50"
+                                    placeholder="1HGCM82633A123456"
+                                    oninput="this.value = this.value.toUpperCase().replace(/[^0-9A-Z]/g, '')"
+                                    aria-describedby="vin-help"
+                                >
+                                <div class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500" aria-hidden="true">
+                                    <i class="fas fa-barcode text-2xl"></i>
+                                </div>
+                            </div>
+                            <p id="vin-help" class="text-center text-gray-500 text-sm mt-2">
+                                <i class="fas fa-info-circle mr-1" aria-hidden="true"></i>
+                                VIN is typically found on your dashboard or driver's side door jamb
+                            </p>
                         </div>
-                        <div class="text-right">
-                            <div class="text-sm text-gray-400 uppercase tracking-widest">Est. Starting At</div>
-                            <div id="est-price" class="text-4xl font-bold text-garage-red">$0</div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+                            <button 
+                                onclick="decodeVIN()" 
+                                id="decodeBtn"
+                                class="px-8 py-4 bg-garage-red text-white font-bold text-lg rounded-lg hover:bg-red-700 transition-all transform hover:scale-105 flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(217,35,35,0.6)] animate-glow"
+                            >
+                                <i class="fas fa-cog" aria-hidden="true"></i>
+                                DECODE VIN
+                            </button>
+                            <button 
+                                onclick="clearVIN()" 
+                                class="px-8 py-4 border-2 border-gray-600 text-gray-400 font-bold text-lg rounded-lg hover:border-gray-400 hover:text-white transition-all flex items-center justify-center gap-3"
+                            >
+                                <i class="fas fa-trash-alt" aria-hidden="true"></i>
+                                CLEAR
+                            </button>
+                        </div>
+
+                        <!-- Loading State -->
+                        <div id="vinLoading" class="hidden text-center py-8" role="status" aria-live="polite">
+                            <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-700 h-12 w-12 mb-4 mx-auto"></div>
+                            <p class="text-gray-400 animate-pulse">Querying NHTSA Database...</p>
+                        </div>
+
+                        <!-- Error Message -->
+                        <div id="vinError" class="hidden bg-red-900/30 border border-red-500/50 rounded-lg p-4 mb-6 text-center" role="alert" aria-live="assertive">
+                            <i class="fas fa-exclamation-triangle text-red-500 text-2xl mb-2" aria-hidden="true"></i>
+                            <p class="text-red-400 font-bold" id="errorText">Invalid VIN or service unavailable</p>
+                        </div>
+
+                        <!-- Results Container -->
+                        <div id="vinResults" class="hidden animate-fade-in">
+                            <!-- Vehicle Header -->
+                            <div class="bg-garage-black/50 rounded-xl p-6 mb-6 border border-gray-700">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-16 h-16 bg-garage-red rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                                        <i class="fas fa-car text-2xl text-white"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-bold text-white" id="vehicleTitle">Vehicle Details</h3>
+                                        <p class="text-garage-red font-mono text-sm" id="vinDisplay">VIN: </p>
+                                    </div>
+                                    <div class="hidden sm:block text-right">
+                                        <div class="text-3xl font-bold text-garage-red" id="modelYear">--</div>
+                                        <div class="text-xs text-gray-500 uppercase tracking-wider">Year</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Specs Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                                <!-- Make -->
+                                <div class="bg-garage-black/30 p-4 rounded-lg border border-gray-800 hover:border-garage-red/50 transition-colors group">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <i class="fas fa-industry text-garage-red group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                                        <span class="text-gray-500 text-sm uppercase tracking-wider">Make</span>
+                                    </div>
+                                    <p class="text-xl font-bold text-white" id="makeValue">--</p>
+                                </div>
+
+                                <!-- Model -->
+                                <div class="bg-garage-black/30 p-4 rounded-lg border border-gray-800 hover:border-garage-red/50 transition-colors group">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <i class="fas fa-car-side text-garage-red group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                                        <span class="text-gray-500 text-sm uppercase tracking-wider">Model</span>
+                                    </div>
+                                    <p class="text-xl font-bold text-white" id="modelValue">--</p>
+                                </div>
+
+                                <!-- Trim -->
+                                <div class="bg-garage-black/30 p-4 rounded-lg border border-gray-800 hover:border-garage-red/50 transition-colors group">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <i class="fas fa-layer-group text-garage-red group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                                        <span class="text-gray-500 text-sm uppercase tracking-wider">Trim</span>
+                                    </div>
+                                    <p class="text-xl font-bold text-white" id="trimValue">--</p>
+                                </div>
+
+                                <!-- Engine -->
+                                <div class="bg-garage-black/30 p-4 rounded-lg border border-gray-800 hover:border-garage-red/50 transition-colors group">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <i class="fas fa-cog text-garage-red group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                                        <span class="text-gray-500 text-sm uppercase tracking-wider">Engine</span>
+                                    </div>
+                                    <p class="text-xl font-bold text-white" id="engineValue">--</p>
+                                </div>
+
+                                <!-- Transmission -->
+                                <div class="bg-garage-black/30 p-4 rounded-lg border border-gray-800 hover:border-garage-red/50 transition-colors group">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <i class="fas fa-cogs text-garage-red group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                                        <span class="text-gray-500 text-sm uppercase tracking-wider">Transmission</span>
+                                    </div>
+                                    <p class="text-xl font-bold text-white" id="transmissionValue">--</p>
+                                </div>
+
+                                <!-- Fuel Type -->
+                                <div class="bg-garage-black/30 p-4 rounded-lg border border-gray-800 hover:border-garage-red/50 transition-colors group">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <i class="fas fa-gas-pump text-garage-red group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                                        <span class="text-gray-500 text-sm uppercase tracking-wider">Fuel Type</span>
+                                    </div>
+                                    <p class="text-xl font-bold text-white" id="fuelValue">--</p>
+                                </div>
+
+                                <!-- Drive Type -->
+                                <div class="bg-garage-black/30 p-4 rounded-lg border border-gray-800 hover:border-garage-red/50 transition-colors group">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <i class="fas fa-road text-garage-red group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                                        <span class="text-gray-500 text-sm uppercase tracking-wider">Drive Type</span>
+                                    </div>
+                                    <p class="text-xl font-bold text-white" id="driveValue">--</p>
+                                </div>
+
+                                <!-- Body Style -->
+                                <div class="bg-garage-black/30 p-4 rounded-lg border border-gray-800 hover:border-garage-red/50 transition-colors group">
+                                    <div class="flex items-center gap-3 mb-2">
+                                        <i class="fas fa-truck-pickup text-garage-red group-hover:scale-110 transition-transform" aria-hidden="true"></i>
+                                        <span class="text-gray-500 text-sm uppercase tracking-wider">Body Style</span>
+                                    </div>
+                                    <p class="text-xl font-bold text-white" id="bodyValue">--</p>
+                                </div>
+                            </div>
+
+                            <!-- Manufacturing Info -->
+                            <div class="bg-garage-black/30 rounded-xl p-6 border border-gray-800 mb-6">
+                                <h4 class="font-bold text-lg mb-4 flex items-center gap-2">
+                                    <i class="fas fa-info-circle text-garage-red" aria-hidden="true"></i>
+                                    Manufacturing Details
+                                </h4>
+                                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                                    <div>
+                                        <span class="text-gray-500 block text-xs uppercase">Manufactured In</span>
+                                        <span class="text-white font-bold" id="plantValue">--</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-500 block text-xs uppercase">Vehicle Type</span>
+                                        <span class="text-white font-bold" id="typeValue">--</span>
+                                    </div>
+                                    <div>
+                                        <span class="text-gray-500 block text-xs uppercase">GVWR</span>
+                                        <span class="text-white font-bold" id="gvwrValue">--</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- CTA -->
+                            <div class="bg-gradient-to-r from-garage-red/20 to-transparent border-l-4 border-garage-red rounded-r-lg p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <div>
+                                    <h4 class="font-bold text-lg mb-1">Need service for this vehicle?</h4>
+                                    <p class="text-gray-400 text-sm">We have the specs. Let's get it running right.</p>
+                                </div>
+                                <button onclick="openBookingModal(); setTimeout(() => fillVehicleInfo(), 500)" class="px-6 py-3 bg-garage-red text-white font-bold rounded hover:bg-red-700 transition-all flex items-center gap-2 whitespace-nowrap animate-glow">
+                                    <i class="fas fa-calendar-check" aria-hidden="true"></i>
+                                    BOOK SERVICE
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-4 pt-4 border-t border-gray-800 text-xs text-gray-500">
-                        * Prices are estimates only. Contact us for a firm quote based on your specific vehicle.
+                </div>
+
+                <!-- Sample VINs for Testing -->
+                <div class="mt-8 text-center">
+                    <p class="text-gray-500 text-sm mb-3">Try these sample VINs for testing:</p>
+                    <div class="flex flex-wrap justify-center gap-2">
+                        <button onclick="setSampleVIN('1HGCM82633A004352')" class="px-3 py-1 bg-garage-gray border border-gray-700 rounded text-xs text-gray-400 hover:text-white hover:border-garage-red transition-all font-mono">
+                            Honda Accord
+                        </button>
+                        <button onclick="setSampleVIN('1FTFW1EF7EKG28768')" class="px-3 py-1 bg-garage-gray border border-gray-700 rounded text-xs text-gray-400 hover:text-white hover:border-garage-red transition-all font-mono">
+                            Ford F-150
+                        </button>
+                        <button onclick="setSampleVIN('3VW2K7AJ7FM123456')" class="px-3 py-1 bg-garage-gray border border-gray-700 rounded text-xs text-gray-400 hover:text-white hover:border-garage-red transition-all font-mono">
+                            VW Jetta
+                        </button>
+                        <button onclick="setSampleVIN('5UXCR6C03L9B12345')" class="px-3 py-1 bg-garage-gray border border-gray-700 rounded text-xs text-gray-400 hover:text-white hover:border-garage-red transition-all font-mono">
+                            BMW X5
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW: SMART SERVICE ADVISOR (Replaces Estimator) -->
+    <section id="advisor" class="py-24 relative bg-garage-gray overflow-hidden" aria-labelledby="advisor-heading">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-garage-red/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-garage-red/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-1 bg-garage-red/20 border border-garage-red rounded-full mb-4">
+                    <i class="fas fa-stethoscope text-garage-red text-sm" aria-hidden="true"></i>
+                    <span class="text-garage-red text-xs font-bold tracking-wider">EXPERT DIAGNOSTICS</span>
+                </div>
+                <h2 id="advisor-heading" class="text-5xl font-bold mb-4 glow-text">WHAT'S WRONG WITH <span class="red-gradient-text">MY CAR?</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Select your symptom below. We'll tell you what it might be and why Lieblich's is the only shop you need.
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Symptom Selection -->
+                <div class="lg:col-span-1 space-y-4">
+                    <div class="advisor-card bg-garage-black p-6 rounded-xl border border-gray-800" onclick="showDiagnosis('noise')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-garage-red/20 rounded-full flex items-center justify-center text-garage-red">
+                                <i class="fas fa-volume-up"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Grinding/Squealing Noise</h3>
+                                <p class="text-gray-500 text-sm">When braking or turning</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="advisor-card bg-garage-black p-6 rounded-xl border border-gray-800" onclick="showDiagnosis('light')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-garage-red/20 rounded-full flex items-center justify-center text-garage-red">
+                                <i class="fas fa-engine-warning"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Warning Light On</h3>
+                                <p class="text-gray-500 text-sm">Check engine, ABS, or Airbag</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="advisor-card bg-garage-black p-6 rounded-xl border border-gray-800" onclick="showDiagnosis('fluid')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-garage-red/20 rounded-full flex items-center justify-center text-garage-red">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Fluid Leak</h3>
+                                <p class="text-gray-500 text-sm">Puddles under the car</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="advisor-card bg-garage-black p-6 rounded-xl border border-gray-800" onclick="showDiagnosis('start')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-garage-red/20 rounded-full flex items-center justify-center text-garage-red">
+                                <i class="fas fa-battery-quarter"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Won't Start</h3>
+                                <p class="text-gray-500 text-sm">Clicking or no sound at all</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="advisor-card bg-garage-black p-6 rounded-xl border border-gray-800" onclick="showDiagnosis('ac')">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-garage-red/20 rounded-full flex items-center justify-center text-garage-red">
+                                <i class="fas fa-snowflake"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">A/C Not Cold</h3>
+                                <p class="text-gray-500 text-sm">Blowing hot or weak air</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Diagnosis Display -->
+                <div class="lg:col-span-2">
+                    <div id="diagnosis-panel" class="bg-garage-black rounded-2xl p-8 border border-gray-800 h-full flex flex-col justify-center items-center text-center relative overflow-hidden">
+                        <!-- Default State -->
+                        <div id="diagnosis-default" class="absolute inset-0 flex flex-col items-center justify-center p-8">
+                            <div class="w-24 h-24 bg-garage-gray rounded-full flex items-center justify-center mb-6 animate-pulse">
+                                <i class="fas fa-stethoscope text-4xl text-garage-red"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold mb-2">Select a Symptom</h3>
+                            <p class="text-gray-500">Click on an issue to the left to see our expert analysis.</p>
+                        </div>
+
+                        <!-- Active Diagnosis Content (Hidden by default) -->
+                        <div id="diagnosis-content" class="hidden w-full text-left">
+                            <div class="flex items-center gap-4 mb-6 border-b border-gray-800 pb-6">
+                                <div class="w-16 h-16 bg-garage-red rounded-xl flex items-center justify-center text-white text-2xl shadow-[0_0_20px_rgba(217,35,35,0.4)]">
+                                    <i id="diag-icon" class="fas fa-wrench"></i>
+                                </div>
+                                <div>
+                                    <h3 id="diag-title" class="text-3xl font-bold text-white">Diagnosis Title</h3>
+                                    <p class="text-garage-red font-bold tracking-wider text-sm uppercase">Lieblich's Analysis</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-6">
+                                <div class="bg-garage-gray/30 p-6 rounded-xl border-l-4 border-garage-red">
+                                    <h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+                                        <i class="fas fa-search text-garage-red"></i> Likely Culprit
+                                    </h4>
+                                    <p id="diag-culprit" class="text-gray-300">Description of the issue...</p>
+                                </div>
+
+                                <div class="bg-garage-gray/30 p-6 rounded-xl border-l-4 border-carfax-blue">
+                                    <h4 class="font-bold text-lg mb-2 flex items-center gap-2">
+                                        <i class="fas fa-shield-alt text-carfax-blue"></i> The Lieblich's Solution
+                                    </h4>
+                                    <p id="diag-solution" class="text-gray-300">How we fix it differently...</p>
+                                </div>
+
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                                    <div class="flex items-center gap-3 text-sm text-gray-400">
+                                        <i class="fas fa-check-circle text-green-500"></i>
+                                        <span>Free Initial Scan</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 text-sm text-gray-400">
+                                        <i class="fas fa-check-circle text-green-500"></i>
+                                        <span>Photos of Damage Sent to You</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 text-sm text-gray-400">
+                                        <i class="fas fa-check-circle text-green-500"></i>
+                                        <span>Fixed Right the First Time</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 text-sm text-gray-400">
+                                        <i class="fas fa-check-circle text-green-500"></i>
+                                        <span>12-Month Warranty</span>
+                                    </div>
+                                </div>
+
+                                <button onclick="openBookingModal()" class="w-full mt-6 py-4 bg-garage-red text-white font-bold text-lg rounded-lg hover:bg-red-700 transition-all shadow-[0_0_20px_rgba(217,35,35,0.4)] animate-glow">
+                                    SCHEDULE INSPECTION
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -685,41 +1510,46 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-garage-black relative">
-        <div class="container mx-auto px-6">
+    <section id="contact" class="py-24 relative bg-garage-black" aria-labelledby="contact-heading">
+        <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col lg:flex-row gap-12">
                 <!-- Contact Info -->
                 <div class="lg:w-1/3">
-                    <h2 class="text-4xl font-bold mb-6">GET IN <span class="text-garage-red">TOUCH</span></h2>
+                    <h2 id="contact-heading" class="text-4xl font-bold mb-6 glow-text">GET IN <span class="red-gradient-text">TOUCH</span></h2>
                     <p class="text-gray-400 mb-8">Ready to schedule an appointment? Call us directly or stop by the shop.</p>
                     
-                    <div class="space-y-6">
+                    <address class="space-y-6 not-italic">
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-garage-gray rounded-full flex items-center justify-center flex-shrink-0 text-garage-red">
+                            <div class="w-12 h-12 bg-garage-gray rounded-full flex items-center justify-center flex-shrink-0 text-garage-red" aria-hidden="true">
                                 <i class="fas fa-map-marker-alt text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Address</h4>
-                                <p class="text-gray-400">29500 W. 9 Mile Rd<br>Farmington Hills, MI</p>
+                                <h3 class="font-bold text-lg">Address</h3>
+                                <p class="text-gray-400">
+                                    <a href="https://www.google.com/maps/search/?api=1&query=Lieblich's+Garage+29500+W+9+Mile+Rd+Farmington+Hills+MI+48336" target="_blank" rel="noopener noreferrer" class="hover:text-garage-red transition-colors">
+                                        29500 W. 9 Mile Rd<br>
+                                        Farmington Hills, MI 48336
+                                    </a>
+                                </p>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-garage-gray rounded-full flex items-center justify-center flex-shrink-0 text-garage-red">
+                            <div class="w-12 h-12 bg-garage-gray rounded-full flex items-center justify-center flex-shrink-0 text-garage-red" aria-hidden="true">
                                 <i class="fas fa-phone-alt text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Phone</h4>
-                                <a href="tel:248-477-5513" class="text-gray-400 hover:text-garage-red transition-colors">(248) 477-5513</a>
+                                <h3 class="font-bold text-lg">Phone</h3>
+                                <a href="tel:+12484775513" class="text-gray-400 hover:text-garage-red transition-colors">(248) 477-5513</a>
                             </div>
                         </div>
 
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-garage-gray rounded-full flex items-center justify-center flex-shrink-0 text-garage-red">
+                            <div class="w-12 h-12 bg-garage-gray rounded-full flex items-center justify-center flex-shrink-0 text-garage-red" aria-hidden="true">
                                 <i class="fas fa-clock text-xl"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-lg">Business Hours</h4>
+                                <h3 class="font-bold text-lg">Business Hours</h3>
                                 <ul class="text-gray-400">
                                     <li class="flex justify-between gap-8"><span>Mon - Fri:</span> <span class="text-white">8:00 AM - 6:00 PM</span></li>
                                     <li class="flex justify-between gap-8"><span>Saturday:</span> <span class="text-red-400">Closed</span></li>
@@ -731,17 +1561,17 @@
                         <!-- Mini Award Badge -->
                         <div class="mt-8 p-4 bg-gradient-to-r from-carfax-blue/20 to-transparent border-l-4 border-carfax-yellow rounded-r-lg">
                             <div class="flex items-center gap-3">
-                                <i class="fas fa-trophy text-carfax-yellow text-2xl"></i>
+                                <i class="fas fa-trophy text-carfax-yellow text-2xl" aria-hidden="true"></i>
                                 <div>
                                     <p class="text-carfax-yellow font-bold text-sm">2025 CARFAX</p>
                                     <p class="text-white font-bold">Top-Rated Service</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </address>
                 </div>
 
-                <!-- Map -->
+                <!-- Map - REAL LOCATION -->
                 <div class="lg:w-2/3 h-96 lg:h-auto bg-garage-gray rounded-xl overflow-hidden border border-gray-800 relative group">
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2943.4567890123456!2d-83.3661234!3d42.4591234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDI3JzMyLjgiTiA4M8KwMjEnNTguMCJX!5e0!3m2!1sen!2sus!4v1234567890" 
@@ -750,43 +1580,74 @@
                         style="border:0; filter: grayscale(100%) invert(92%) contrast(83%);" 
                         allowfullscreen="" 
                         loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Lieblich's Garage Location Map"
+                        aria-label="Google Maps showing Lieblich's Garage location at 29500 W 9 Mile Rd, Farmington Hills, MI">
                     </iframe>
-                    <div class="absolute bottom-4 right-4 bg-garage-red text-white px-4 py-2 rounded font-bold shadow-lg">
-                        View Larger Map
-                    </div>
+                    <a href="https://www.google.com/maps/dir/?api=1&destination=Lieblich's+Garage+29500+W+9+Mile+Rd+Farmington+Hills+MI+48336" target="_blank" rel="noopener noreferrer" class="absolute bottom-4 right-4 bg-garage-red text-white px-4 py-2 rounded font-bold shadow-lg animate-glow hover:bg-red-700 transition-colors">
+                        Get Directions
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black py-12 border-t border-gray-900">
-        <div class="container mx-auto px-6">
+    <footer class="bg-black py-12 border-t-2 border-garage-red relative overflow-hidden" role="contentinfo">
+        <div class="absolute inset-0 bg-gradient-to-r from-garage-red/5 via-transparent to-garage-red/5" aria-hidden="true"></div>
+        <div class="container mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 bg-garage-red rounded flex items-center justify-center">
+                    <div class="w-8 h-8 bg-garage-red rounded flex items-center justify-center animate-glow" aria-hidden="true">
                         <i class="fas fa-wrench text-white text-sm"></i>
                     </div>
-                    <span class="font-heading text-xl font-bold tracking-wider">LIEBLICH'S GARAGE</span>
+                    <span class="font-heading text-xl font-bold tracking-wider glow-text">LIEBLICH'S GARAGE</span>
                 </div>
 
                 <div class="flex items-center gap-4">
                     <div class="flex items-center gap-2 px-4 py-2 bg-carfax-blue/20 border border-carfax-blue/50 rounded-lg">
-                        <i class="fas fa-award text-carfax-yellow"></i>
+                        <i class="fas fa-award text-carfax-yellow" aria-hidden="true"></i>
                         <span class="text-white text-sm font-bold">2025 Carfax Top-Rated</span>
                     </div>
                 </div>
                 
                 <div class="text-gray-500 text-sm text-center md:text-right">
                     <p>&copy; 2026 Lieblich's Garage. All rights reserved.</p>
-                    <p>29500 W. 9 Mile Rd, Farmington Hills, MI | (248) 477-5513</p>
+                    <p>29500 W. 9 Mile Rd, Farmington Hills, MI 48336 | (248) 477-5513</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
+        // Create floating particles (respects reduced motion)
+        function createParticles() {
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (prefersReducedMotion) return;
+            
+            const container = document.getElementById('particles');
+            const particleCount = 25;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                const duration = Math.random() * 10 + 10;
+                const delay = Math.random() * 5;
+                particle.style.animation = `float-particle ${duration}s linear ${delay}s infinite`;
+                
+                container.appendChild(particle);
+            }
+        }
+
+        window.addEventListener('load', createParticles);
+
         // Navbar Scroll Effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
@@ -801,11 +1662,13 @@
             }
         });
 
-        // Mobile Menu Toggle
+        // Mobile Menu Toggle with accessibility
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
 
         btn.addEventListener('click', () => {
+            const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+            btn.setAttribute('aria-expanded', !isExpanded);
             menu.classList.toggle('hidden');
         });
 
@@ -814,9 +1677,14 @@
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 menu.classList.add('hidden');
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                btn.setAttribute('aria-expanded', 'false');
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    target.focus();
+                }
             });
         });
 
@@ -824,48 +1692,45 @@
         function openBookingModal() {
             document.getElementById('bookingModal').classList.add('active');
             document.body.style.overflow = 'hidden';
+            document.getElementById('booking-title').focus();
             
             // Set minimum date to today
             const today = new Date().toISOString().split('T')[0];
-            document.getElementById('datePicker').min = today;
+            document.getElementById('preferredDate').min = today;
         }
 
         function closeBookingModal() {
             document.getElementById('bookingModal').classList.remove('active');
             document.body.style.overflow = 'auto';
-            // Reset form
             document.getElementById('bookingForm').reset();
             document.getElementById('bookingForm').classList.remove('hidden');
             document.getElementById('bookingSuccess').classList.add('hidden');
-            // Reset time slots
             document.querySelectorAll('.time-slot').forEach(slot => {
                 slot.classList.remove('selected');
+                slot.setAttribute('aria-checked', 'false');
             });
             document.getElementById('selectedTime').value = '';
         }
 
         function selectTime(element, time) {
-            // Remove selected from all slots
             document.querySelectorAll('.time-slot').forEach(slot => {
                 slot.classList.remove('selected');
+                slot.setAttribute('aria-checked', 'false');
             });
-            // Add selected to clicked slot
             element.classList.add('selected');
-            // Set hidden input value
+            element.setAttribute('aria-checked', 'true');
             document.getElementById('selectedTime').value = time;
         }
 
         function handleBooking(e) {
             e.preventDefault();
             
-            // Validate time selection
             const timeSelected = document.getElementById('selectedTime').value;
             if (!timeSelected) {
                 alert('Please select a preferred time slot.');
                 return;
             }
 
-            // Get form data
             const formData = new FormData(e.target);
             const bookingData = {
                 name: formData.get('firstName') + ' ' + formData.get('lastName'),
@@ -878,52 +1743,10 @@
                 notes: formData.get('notes')
             };
 
-            // Here you would typically send the data to your server
             console.log('Booking submitted:', bookingData);
             
-            // Show success message
             document.getElementById('bookingForm').classList.add('hidden');
             document.getElementById('bookingSuccess').classList.remove('hidden');
-        }
-
-        // Service Estimator Logic
-        const estimates = {
-            brakes: {
-                title: "Brake Pad & Rotor Replacement",
-                price: "$250 - $450",
-                desc: "Includes new ceramic brake pads, rotor resurfacing or replacement, and caliper inspection.",
-                includes: ["Remove & inspect rotors", "Install new brake pads", "Caliper inspection", "Brake fluid check", "Road test"]
-            },
-            oil: {
-                title: "Full Synthetic Oil Change",
-                price: "$65 - $95",
-                desc: "Premium synthetic oil change with OEM filter and multi-point inspection.",
-                includes: ["Up to 5 quarts synthetic oil", "Premium oil filter", "Chassis lube", "Fluid top-off", "Tire pressure check"]
-            },
-            tuneup: {
-                title: "Engine Tune-Up",
-                price: "$150 - $400",
-                desc: "Restore engine performance with spark plugs, filters, and diagnostic scan.",
-                includes: ["Replace spark plugs", "Replace air filter", "Replace cabin filter", "Fuel system cleaner", "Computer scan"]
-            }
-        };
-
-        function showEstimate(type) {
-            const display = document.getElementById('estimate-display');
-            const data = estimates[type];
-            
-            document.getElementById('est-title').innerText = data.title;
-            document.getElementById('est-price').innerText = data.price;
-            document.getElementById('est-desc').innerText = data.desc;
-            
-            const list = document.getElementById('est-includes');
-            list.innerHTML = '';
-            data.includes.forEach(item => {
-                list.innerHTML += `<li class="flex items-center gap-2"><i class="fas fa-check text-garage-red text-xs"></i> ${item}</li>`;
-            });
-
-            display.classList.remove('hidden');
-            display.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
         // Close modal when clicking outside
@@ -932,6 +1755,205 @@
                 closeBookingModal();
             }
         });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('bookingModal').classList.contains('active')) {
+                closeBookingModal();
+            }
+        });
+
+        // VIN Decoder Functions
+        async function decodeVIN() {
+            const vinInput = document.getElementById('vinInput');
+            const vin = vinInput.value.trim().toUpperCase();
+            const decodeBtn = document.getElementById('decodeBtn');
+            const loading = document.getElementById('vinLoading');
+            const error = document.getElementById('vinError');
+            const results = document.getElementById('vinResults');
+
+            error.classList.add('hidden');
+            results.classList.add('hidden');
+
+            if (!vin || vin.length !== 17) {
+                showVINError('Please enter a valid 17-character VIN');
+                return;
+            }
+
+            if (/[IOQ]/.test(vin)) {
+                showVINError('VIN cannot contain letters I, O, or Q');
+                return;
+            }
+
+            decodeBtn.disabled = true;
+            decodeBtn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> DECODING...';
+            loading.classList.remove('hidden');
+
+            try {
+                const response = await fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/DecodeVin/${vin}?format=json`);
+                const data = await response.json();
+
+                if (data.Results && data.Results.length > 0) {
+                    displayVINResults(data.Results, vin);
+                } else {
+                    throw new Error('No data returned');
+                }
+            } catch (err) {
+                showVINError('Unable to decode VIN. Please check the number and try again.');
+                console.error('VIN Decode Error:', err);
+            } finally {
+                loading.classList.add('hidden');
+                decodeBtn.disabled = false;
+                decodeBtn.innerHTML = '<i class="fas fa-cog" aria-hidden="true"></i> DECODE VIN';
+            }
+        }
+
+        function displayVINResults(results, vin) {
+            const getValue = (variable) => {
+                const item = results.find(r => r.Variable === variable);
+                return item && item.Value && item.Value !== 'null' && item.Value !== 'Not Applicable' ? item.Value : 'N/A';
+            };
+
+            const year = getValue('Model Year');
+            const make = getValue('Make');
+            const model = getValue('Model');
+            const trim = getValue('Trim');
+            const engine = getValue('Engine Model');
+            const engineCylinders = getValue('Engine Number of Cylinders');
+            const engineDisplacement = getValue('Displacement (L)');
+            const transmission = getValue('Transmission Style');
+            const fuel = getValue('Fuel Type - Primary');
+            const drive = getValue('Drive Type');
+            const body = getValue('Body Class');
+            const plant = getValue('Plant City');
+            const plantCountry = getValue('Plant Country');
+            const vehicleType = getValue('Vehicle Type');
+            const gvwr = getValue('GVWR');
+
+            document.getElementById('vinDisplay').textContent = `VIN: ${vin}`;
+            document.getElementById('modelYear').textContent = year;
+            document.getElementById('vehicleTitle').textContent = `${year} ${make} ${model}`;
+            
+            document.getElementById('makeValue').textContent = make;
+            document.getElementById('modelValue').textContent = model;
+            document.getElementById('trimValue').textContent = trim;
+            
+            let engineText = engine;
+            if (engineDisplacement !== 'N/A') engineText += ` ${engineDisplacement}L`;
+            if (engineCylinders !== 'N/A') engineText += ` ${engineCylinders} Cyl`;
+            document.getElementById('engineValue').textContent = engineText !== 'N/A' ? engineText : 'N/A';
+            
+            document.getElementById('transmissionValue').textContent = transmission;
+            document.getElementById('fuelValue').textContent = fuel;
+            document.getElementById('driveValue').textContent = drive;
+            document.getElementById('bodyValue').textContent = body;
+            
+            const plantLocation = plant !== 'N/A' ? `${plant}, ${plantCountry}` : plantCountry;
+            document.getElementById('plantValue').textContent = plantLocation || 'N/A';
+            document.getElementById('typeValue').textContent = vehicleType;
+            document.getElementById('gvwrValue').textContent = gvwr;
+
+            document.getElementById('vinResults').classList.remove('hidden');
+            document.getElementById('vinResults').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function showVINError(message) {
+            const errorDiv = document.getElementById('vinError');
+            document.getElementById('errorText').textContent = message;
+            errorDiv.classList.remove('hidden');
+            errorDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function clearVIN() {
+            document.getElementById('vinInput').value = '';
+            document.getElementById('vinResults').classList.add('hidden');
+            document.getElementById('vinError').classList.add('hidden');
+            document.getElementById('vinInput').focus();
+        }
+
+        function setSampleVIN(vin) {
+            document.getElementById('vinInput').value = vin;
+            decodeVIN();
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('vinInput')?.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                decodeVIN();
+            }
+        });
+
+        // Function to fill booking form with VIN data
+        function fillVehicleInfo() {
+            const year = document.getElementById('modelYear')?.textContent;
+            const make = document.getElementById('makeValue')?.textContent;
+            const model = document.getElementById('modelValue')?.textContent;
+            
+            if (year && year !== '--' && make && make !== '--') {
+                const vehicleInput = document.getElementById('vehicleYear');
+                const modelInput = document.getElementById('vehicleModel');
+                
+                if (vehicleInput) vehicleInput.value = year;
+                if (modelInput) modelInput.value = `${make} ${model}`;
+            }
+        }
+
+        // NEW: Smart Service Advisor Logic
+        const diagnoses = {
+            noise: {
+                icon: 'fa-volume-up',
+                title: 'Grinding or Squealing Noise',
+                culprit: 'This is usually worn brake pads (metal-on-metal contact), a failing wheel bearing, or a loose belt. Ignoring it can lead to rotor damage or a snapped belt.',
+                solution: 'We perform a free brake inspection and road test. Unlike shops that guess, we use chassis ears to pinpoint the exact corner and component causing the noise, saving you money on unnecessary parts.'
+            },
+            light: {
+                icon: 'fa-engine-warning',
+                title: 'Warning Light On',
+                culprit: 'The Check Engine Light could be anything from a loose gas cap to a failing catalytic converter. ABS/Airbag lights indicate safety system faults that standard scanners often miss.',
+                solution: 'We use dealer-level diagnostic tools (not just basic code readers) to read live data and freeze frames. We don\'t just clear the light; we trace the root cause to prevent it from coming back.'
+            },
+            fluid: {
+                icon: 'fa-tint',
+                title: 'Fluid Leak',
+                culprit: 'Color matters: Red is transmission, Green/Yellow is coolant, Brown/Black is oil. Leaks often come from degraded seals or gaskets due to age or heat.',
+                solution: 'We clean the engine bay and use UV dye to trace the exact source of the leak. We fix the root cause—whether it\'s a $10 seal or a $100 line—rather than just topping off the fluid.'
+            },
+            start: {
+                icon: 'fa-battery-quarter',
+                title: 'Car Won\'t Start',
+                culprit: 'A clicking noise usually means a weak battery or bad starter. Silence often indicates a failed ignition switch or a deeper electrical issue.',
+                solution: 'We test the battery, starter, and charging system for free. If it\'s electrical, we trace parasitic draws with advanced multimeters to find the short, not just replace parts hoping for a fix.'
+            },
+            ac: {
+                icon: 'fa-snowflake',
+                title: 'A/C Not Cold',
+                culprit: 'Most likely a refrigerant leak (often at the Schrader valve or condenser) or a failing compressor clutch. Sometimes it\'s a blend door issue inside the dash.',
+                solution: 'We evacuate and recharge the system with UV dye to find leaks. We check compressor amp draw and vent temperatures. We fix it right so you stay cool all summer, guaranteed.'
+            }
+        };
+
+        function showDiagnosis(type) {
+            const data = diagnoses[type];
+            if (!data) return;
+
+            // Update active state on cards
+            document.querySelectorAll('.advisor-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+
+            // Hide default, show content
+            document.getElementById('diagnosis-default').classList.add('hidden');
+            const content = document.getElementById('diagnosis-content');
+            content.classList.remove('hidden');
+            content.classList.add('animate-fade-in');
+
+            // Populate data
+            document.getElementById('diag-icon').className = `fas ${data.icon}`;
+            document.getElementById('diag-title').textContent = data.title;
+            document.getElementById('diag-culprit').textContent = data.culprit;
+            document.getElementById('diag-solution').textContent = data.solution;
+        }
     </script>
 </body>
 </html>
