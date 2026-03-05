@@ -1,0 +1,8 @@
+# robots.txt for lieblichsgarage.com
+# Tells search engines how to crawl this site
+
+User-agent: *
+Allow: /
+
+# Point to sitemap
+Sitemap: https://lieblichsgarage.com/sitemap.xml
