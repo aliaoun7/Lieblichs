@@ -461,8 +461,8 @@
     <!-- Floating Particles Container -->
     <div id="particles" class="fixed inset-0 pointer-events-none z-0" aria-hidden="true"></div>
 
-    <!-- Booking Modal -->
-    <div id="bookingModal" class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+    <!-- Booking Modal - Hidden: replaced by AutoOps booking system -->
+    <div id="bookingModal" class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="booking-title" style="display:none!important">
         <div class="bg-garage-gray w-full max-w-2xl rounded-xl border border-gray-700 shadow-2xl relative max-h-[90vh] overflow-y-auto">
             <button onclick="closeBookingModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl z-10" aria-label="Close booking modal">
                 <i class="fas fa-times" aria-hidden="true"></i>
@@ -607,7 +607,7 @@
                 </a>
                 <a href="#vin-decoder" class="text-gray-300 hover:text-garage-red font-bold tracking-wide transition-colors">VIN DECODER</a>
                 <a href="#advisor" class="text-gray-300 hover:text-garage-red font-bold tracking-wide transition-colors">DIAGNOSTIC</a>
-                <button onclick="openBookingModal()" class="px-6 py-2 bg-garage-red text-white font-bold rounded hover:bg-red-700 transition-colors shadow-[0_0_20px_rgba(217,35,35,0.6)] animate-glow">
+                <button onclick="AutoOps.show()" class="px-6 py-2 bg-garage-red text-white font-bold rounded hover:bg-red-700 transition-colors shadow-[0_0_20px_rgba(217,35,35,0.6)] animate-glow">
                     BOOK NOW
                 </button>
             </div>
@@ -626,7 +626,7 @@
                 <a href="#awards" class="text-carfax-yellow font-bold flex items-center gap-2" role="menuitem"><i class="fas fa-award" aria-hidden="true"></i> AWARDS</a>
                 <a href="#vin-decoder" class="text-white hover:text-garage-red font-bold" role="menuitem">VIN DECODER</a>
                 <a href="#advisor" class="text-white hover:text-garage-red font-bold" role="menuitem">DIAGNOSTIC</a>
-                <button onclick="openBookingModal()" class="text-garage-red font-bold text-left" role="menuitem">BOOK NOW</button>
+                <button onclick="AutoOps.show()" class="text-garage-red font-bold text-left" role="menuitem">BOOK NOW</button>
             </div>
         </div>
     </nav>
@@ -675,7 +675,7 @@
                 </p>
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button onclick="openBookingModal()" class="px-10 py-5 bg-garage-red text-white font-bold text-lg rounded hover:bg-red-700 transition-all transform hover:scale-105 flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(217,35,35,0.6)] animate-glow">
+                    <button onclick="AutoOps.show()" class="px-10 py-5 bg-garage-red text-white font-bold text-lg rounded hover:bg-red-700 transition-all transform hover:scale-105 flex items-center justify-center gap-3 shadow-[0_0_40px_rgba(217,35,35,0.6)] animate-glow">
                         <i class="fas fa-calendar-check" aria-hidden="true"></i>
                         BOOK APPOINTMENT
                     </button>
@@ -986,7 +986,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-garage-red transition-colors">DIAGNOSTICS</h3>
                     <p class="text-gray-400 mb-6 text-sm leading-relaxed">Advanced scan + pinpoint testing. We confirm the failure, then fix it.</p>
-                    <a href="#" onclick="openBookingModal(); document.getElementById('serviceType').value='diagnostics'; return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
+                    <a href="#" onclick="AutoOps.show(); return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
                         Book Diagnostics <i class="fas fa-arrow-right"></i>
                     </a>
                 </article>
@@ -1001,7 +1001,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-garage-red transition-colors">BRAKES</h3>
                     <p class="text-gray-400 mb-6 text-sm leading-relaxed">Pads, rotors, calipers, fluid service – quiet, smooth, and safe.</p>
-                    <a href="#" onclick="openBookingModal(); document.getElementById('serviceType').value='brake-service'; return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
+                    <a href="#" onclick="AutoOps.show(); return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
                         Get Estimate <i class="fas fa-arrow-right"></i>
                     </a>
                 </article>
@@ -1016,7 +1016,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-garage-red transition-colors">MAINTENANCE</h3>
                     <p class="text-gray-400 mb-6 text-sm leading-relaxed">Factory schedules, fluids, filters – keep it reliable and avoid surprises.</p>
-                    <a href="#" onclick="openBookingModal(); document.getElementById('serviceType').value='oil-change'; return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
+                    <a href="#" onclick="AutoOps.show(); return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
                         Get Estimate <i class="fas fa-arrow-right"></i>
                     </a>
                 </article>
@@ -1031,7 +1031,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-garage-red transition-colors">ELECTRICAL</h3>
                     <p class="text-gray-400 mb-6 text-sm leading-relaxed">Starting/charging, parasitic drains, modules, sensors, wiring issues.</p>
-                    <a href="#" onclick="openBookingModal(); document.getElementById('serviceType').value='battery'; return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
+                    <a href="#" onclick="AutoOps.show(); return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
                         Book Electrical <i class="fas fa-arrow-right"></i>
                     </a>
                 </article>
@@ -1046,7 +1046,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-garage-red transition-colors">A/C & HEAT</h3>
                     <p class="text-gray-400 mb-6 text-sm leading-relaxed">Cold air fast. Leak checks, compressors, recharge, blend doors.</p>
-                    <a href="#" onclick="openBookingModal(); document.getElementById('serviceType').value='other'; return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
+                    <a href="#" onclick="AutoOps.show(); return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
                         Book A/C Service <i class="fas fa-arrow-right"></i>
                     </a>
                 </article>
@@ -1061,7 +1061,7 @@
                     </div>
                     <h3 class="text-2xl font-bold mb-3 text-white group-hover:text-garage-red transition-colors">TIRES & ALIGNMENT</h3>
                     <p class="text-gray-400 mb-6 text-sm leading-relaxed">Smooth ride, even wear. Rotations, balance, alignments, inspection.</p>
-                    <a href="#" onclick="openBookingModal(); document.getElementById('serviceType').value='tires'; return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
+                    <a href="#" onclick="AutoOps.show(); return false;" class="service-action-link text-garage-red font-bold text-sm flex items-center gap-2">
                         Book Tires <i class="fas fa-arrow-right"></i>
                     </a>
                 </article>
@@ -1330,7 +1330,7 @@
                                     <h4 class="font-bold text-lg mb-1">Need service for this vehicle?</h4>
                                     <p class="text-gray-400 text-sm">We have the specs. Let's get it running right.</p>
                                 </div>
-                                <button onclick="openBookingModal(); setTimeout(() => fillVehicleInfo(), 500)" class="px-6 py-3 bg-garage-red text-white font-bold rounded hover:bg-red-700 transition-all flex items-center gap-2 whitespace-nowrap animate-glow">
+                                <button onclick="AutoOps.show()" class="px-6 py-3 bg-garage-red text-white font-bold rounded hover:bg-red-700 transition-all flex items-center gap-2 whitespace-nowrap animate-glow">
                                     <i class="fas fa-calendar-check" aria-hidden="true"></i>
                                     BOOK SERVICE
                                 </button>
@@ -1484,7 +1484,7 @@
 
                                 <!-- REMOVED: Green checkmarks grid -->
 
-                                <button onclick="openBookingModal()" class="w-full mt-6 py-4 bg-garage-red text-white font-bold text-lg rounded-lg hover:bg-red-700 transition-all shadow-[0_0_20px_rgba(217,35,35,0.4)] animate-glow">
+                                <button onclick="AutoOps.show()" class="w-full mt-6 py-4 bg-garage-red text-white font-bold text-lg rounded-lg hover:bg-red-700 transition-all shadow-[0_0_20px_rgba(217,35,35,0.4)] animate-glow">
                                     SCHEDULE INSPECTION
                                 </button>
                             </div>
@@ -1906,6 +1906,13 @@
             decodeVIN();
         }
 
+        // AutoOps Integration: fallback in case AutoOps hasn't loaded yet
+        function safeOpenBooking() {
+            if (typeof AutoOps !== 'undefined' && AutoOps.show) {
+                AutoOps.show();
+            }
+        }
+
         // Allow Enter key to submit
         document.getElementById('vinInput')?.addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
@@ -1984,6 +1991,24 @@
             document.getElementById('diag-culprit').textContent = data.culprit;
             document.getElementById('diag-solution').textContent = data.solution;
         }
+    </script>
+    <!-- AutoOps Booking System Integration -->
+    <!-- Step 1: Main AutoOps Script (place last in body) -->
+    <script id="portal-scripts" data-api-key="2f239f52339d409bb37ece10946254b4" data-google-analytics-enabled="true" data-loading-color="000000" src="https://portal.autoops.com/portal-scripts.js"></script>
+
+    <!-- Step 2: AutoOps Button Code -->
+    <script>
+    function attachAOCode() {
+        const apptBtns = document.querySelectorAll("a[href='<YOUR_WEBSITE_APPOINTMENT_PAGE_URL>']");
+        for (const apptBtn of apptBtns) {
+            apptBtn.href = "";
+            apptBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                AutoOps.show();
+            });
+        }
+    }
+    attachAOCode()
     </script>
 </body>
 </html>
